@@ -283,11 +283,12 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
 
 
    as processing power and memory and security protocol complexity has
-   to be considered.  Also a plethora of attack scenarios has to be in
-   focus as well as scalability of the considered implicit and explicit
-   hardware- and software-based authentication procedures.  [RFC8576]
-   serves as a reference for details about IoT specific security
-   considerations including t he area of authentication and documents
+   to be considered.  In addition, a plethora of attack scenarios has to be
+   regarded as well as scalability of the considered implicit and explicit
+   hardware- and software-based authentication procedures needs to be
+   taken into account.  [RFC8576] serves as a reference for details about
+   IoT specific security
+   considerations including the area of authentication and documents
    their specific security challenges, threat models, and possible
    mitigations.  [to be continued]
 
@@ -313,6 +314,10 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    components.  On all levels of handling these data, i.e., storage,
    processing, and transport via a communication network, the integrity
    of the content has to be preserved.
+   
+   On the other hand, any unintended authentication request should be
+   prevented to minimize the risk of occasional attachment to 
+   networks and subsequent exposure to attack to sensitive user data.
 
 6.1.  Architectural and Procedural Issues for Future IP-based IoT-
       Authentication

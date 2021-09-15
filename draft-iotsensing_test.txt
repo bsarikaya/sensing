@@ -290,8 +290,9 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    components.  On all levels of handling these data, i.e., storage,
    processing, and transport via a communication network, the integrity
    of the content has to be preserved.
-   On the other hand, any unintended authentication request should be
-   prevented to minimize the risk of occasional attachment to 
+   
+   One should keep in mind, that any unintended authentication request
+   should be prevented to minimize the risk of occasional attachment to 
    networks and subsequent exposure to attack to sensitive user data.
 
 6.1.  Architectural and Procedural Issues for Future IP-based IoT-
@@ -315,23 +316,24 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
 
    When compared to a fully certificate-based authentication, however, a
    hardware-based AAA mechanism relying e.g., on WiFi sensing gesture
-  detection does not require the user to know any key, identifier, or
-  password for the device to be authenticated.  A pre-defined type of access
-  to the device (e.g., physical, photographic or video representation,
-  unique description in terms of parameters, etc.) shall be sufficient for
-  authentication.
+   detection does not require the user to know any key, identifier, or
+   password for the device to be authenticated.  A pre-defined type of access
+   to the device (e.g., physical, photographic or video representation,
+   unique description in terms of parameters, etc.) shall be sufficient for
+   authentication.
 
-  Similar to what the Extensible Authentication Protocol (EAP) providing an
-  authentication framework supporting multiple authentication methods we try
-  to generalize an AAA over any layer not requiring pre-authentication.  
+   Similar to what the Extensible Authentication Protocol (EAP) providing an
+   authentication framework supporting multiple authentication methods we try
+   to generalize an AAA over any layer not requiring pre-authentication.  
 
 
-  IoT device        WiFi Sensing AP       AAA Client         AAA-Server
-       |                   |                   |                  |       
-       |<---- token -----> |                   |                  | 
-       |                   |<- identity data ->|                  |
-       |                   |                   |-- AAA Request -->|
-       |                   |                   |<- AAA-Response --|
+   IoT device        WiFi Sensing AP       AAA Client         AAA-Server
+        |                   |                   |                  |       
+        |<---- token -----> |                   |                  | 
+        |                   |<- identity data ->|                  |
+        |                   |                   |-- AAA Request -->|
+        |                   |                   |<- AAA-Response --|
+       
       Figure 1: Schematic representation of Authentication procedure
 
    The AAA method is intended for authenticating all kind of Internet-of-

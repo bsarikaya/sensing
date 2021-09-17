@@ -461,6 +461,20 @@ von Hugo & Sarikaya       Expires March 6, 2022                 [Page 7]
 Internet-Draft        IoT Sensing Problem Statement       September 2021
 
 
+   [draft-richardson-anima-masa-considerations]
+   [draft-richardson-t2trg-idevid-considerations] 
+   [draft-richardson-anima-registrar-considerations]  
+   [draft-ietf-emu-eap-noob-06]
+     T. Aura
+Internet-Draft                                          Aalto University
+Intended status: Standards Track                                M. Sethi
+Expires: March 7, 2022                                          Ericsson
+                                                             A. Peltonen
+                                                        Aalto University
+                                                       September 3, 2021
+
+          Nimble out-of-band authentication for EAP (EAP-NOOB)
+                       draft-ietf-emu-eap-noob-06
    [FURQAN]   Furqan, H., Solaija, M., Tuerkmen, H., and H. Arslan,
               "Wireless Communication, Sensing, and REM: A Security
               Perspective", IEEE Open Journal of the Communications

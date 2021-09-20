@@ -105,15 +105,6 @@ Table of Contents
    picture of an environment, in car sensing for driver sleepiness
    detection [BFUseCases].
 
-
-
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                 [Page 2]
- 
-Internet-Draft        IoT Sensing Problem Statement       September 2021
-
-
    Hardware based authentication that we address in this document builds
    on similar use cases.  We can summarize the use cases we are
    currently considering here: Authenticating the device that is playing
@@ -153,14 +144,6 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    authentication.
 
 
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                 [Page 3]
- 
-Internet-Draft        IoT Sensing Problem Statement       September 2021
-
-
-
 3.  Hardware Based Authentication
 
    Aim of this document is to lay ground for for new
@@ -196,15 +179,6 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    The following list of literature on sensor data and WiFi sensing for
    securing and authenticating a user and a device shows the wide range
    of approaches and interest in this topic [Rest21].
-
-
-
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                 [Page 4]
- 
-Internet-Draft        IoT Sensing Problem Statement       September 2021
-
 
    [Ma], [Wang], [Zhu], [Wang2], [Qian] provide a holistic overview on
    the evolution of Wi-Fi technology and on investigations in
@@ -254,14 +228,6 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    preventing unauthorized access to data are very high.  Therefore very
    robust authentication mechanisms have to be applied.  At the same
    time depending on the specific scenario a trade-off between resources
-
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                 [Page 5]
- 
-Internet-Draft        IoT Sensing Problem Statement       September 2021
-
-
    as processing power and memory and security protocol complexity has
    to be considered.  In addition, a plethora of attack scenarios has to
    be considered and scalability of the considered implicit and explicit
@@ -269,7 +235,14 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    taken into account.  [RFC8576] serves as a reference for details about
    IoT specific security considerations including the area of
    authentication and documents their specific security challenges,
-   threat models, and possible mitigations.  [to be continued]
+   threat models, and possible mitigations. Also the OAuth [RFC6749] protocol is 
+   referred to which extends traditional client-server authentication by
+   providing a third party client with a token instead of allowing it to
+   use the resource owner's credentials to access protected resources
+   while such token resembles a different set of credentials than those
+   of the resource owner.
+   
+   [to be continued]
 
 6.  Hardware IoT Authentication Problem
 
@@ -364,8 +337,7 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    certificate can be deployed to the device via the established secure
    connection as well.
    
-   [draft-richardson-anima-masa-considerations] (expired) on Operational
-   Considerations for Voucher infrastructure for BRSKI MASA describes and
+   [masa] describes and
    defines several operational modes that a BRSKI Manufacturer Authorized
    Signing Authority (MASA) may take on.  Each mode is assessed in terms of
    relevance and applicability per type of organization the MASA is deployed
@@ -373,24 +345,23 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    and other related trust anchors such that devices can later be
    authenticated.
 
-   [draft-richardson-t2trg-idevid-considerations] on a taxonomy of
-   operational security of manufacturer installed keys and anchors is
+   [idevid] provides a taxonomy of operational security of manufacturer
+   installed keys and anchors and is
    dealing with how the PKI used for above can be evaluated.
 
-   [draft-richardson-anima-registrar-considerations] (expired) on
-   Operational Considerations for BRSKI Registrar describes how an
+   [registra] details Operational Considerations for BRSKI Registrar
+   describing how an
    operator builds and manages the infrastructure to authenticate devices.
 
-   [draft-irtf-t2trg-secure-bootstrapping-00] on ‘Secure IoT Bootstrapping:
-   A Survey’ provides an overview of the various terms that are used when
+   [bootstr] gives an overview of the various terms that are used when
    discussing bootstrapping of IoT devices and presents an overview of
    secure bootstrapping mechanisms available for smart objects that are part
    of an Internet of Things (IoT) network in terms of different options to
    choose from, depending on their use-case, security requirements, and the
    user interface available on their IoT devices.
 
-   [draft-ietf-emu-eap-noob-06] on Nimble out-of-band authentication for EAP
-   (EAP-NOOB) defines both an authentication method and key derivation.  The
+   [eap-noob] on Nimble out-of-band authentication for EAP (EAP-NOOB) defines
+   both an authentication method and key derivation.  The
    EAP method is intended for bootstrapping all kinds of Internet-of-Things
    (IoT) devices that have no pre-configured authentication credentials.
 
@@ -408,12 +379,6 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    This document raises no new security concerns but tries to identify
    how to increase security in future IoT by discussing the issues of
    robust but easy to apply authentication mechanisms.
-
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                 [Page 6]
- 
-Internet-Draft        IoT Sensing Problem Statement       September 2021
 
 
 9.  Acknowledgements
@@ -454,27 +419,16 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
               IEEE P802.11 - TASK GROUP BF (WLAN SENSING) 11-20/1712r2
               "WiFi Sensing Use Cases"", January 2021.
 
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                 [Page 7]
- 
-Internet-Draft        IoT Sensing Problem Statement       September 2021
-
-
-   [draft-richardson-anima-masa-considerations]
-   [draft-richardson-t2trg-idevid-considerations] 
-   [draft-richardson-anima-registrar-considerations]  
-   [draft-ietf-emu-eap-noob-06]
-     T. Aura
-Internet-Draft                                          Aalto University
-Intended status: Standards Track                                M. Sethi
-Expires: March 7, 2022                                          Ericsson
-                                                             A. Peltonen
-                                                        Aalto University
-                                                       September 3, 2021
-
-          Nimble out-of-band authentication for EAP (EAP-NOOB)
-                       draft-ietf-emu-eap-noob-06
+   [bootstr]  Sethi, M., Sarikaya, B., and D. Garcia-Carrillo, "Secure IoT
+              Bootstrapping: A Survey", Work in Progress, Internet-Draft,
+              draft-irtf-t2trg-secure-bootstrapping-00, April 2021, 
+              https://www.ietf.org/id/draft-irtf-t2trg-secure-bootstrapping
+              -00.txt
+              
+   [eap-noob] Aura, T., Sethi, M., and A. Peltonen, "Nimble out-of-band
+              authentication for EAP (EAP-NOOB)", Work in Progress,
+              Internet-Draft, draft-ietf-emu-eap-noob-06, September 2021
+              
    [FURQAN]   Furqan, H., Solaija, M., Tuerkmen, H., and H. Arslan,
               "Wireless Communication, Sensing, and REM: A Security
               Perspective", IEEE Open Journal of the Communications
@@ -497,7 +451,14 @@ Expires: March 7, 2022                                          Ericsson
               IEEE, "Institute of Electrical and Electronics Engineers,
               "802.1X - Port Based Network Access Control"", January
               2020.
-
+              
+   [idevid]   Richardson, M. and J. Yang, "A Taxonomy of operational
+              security of manufacturer installed keys and anchors", Work
+              in Progress, Internet-Draft, draft-richardson-t2trg-
+              idevid-considerations-02, 21 February 2021,
+              <http://www.ietf.org/internet-drafts/draft-richardson-
+              t2trg-idevid-considerations-02.txt>.
+ 
    [Liao]     Liao, R., Wen, H., Wu, J., Pan, F., Xu, A., Jiang, Y.,
               Xie, F., and M. Cao, "Deep-learning-based physical layer
               authentication for industrial wireless sensor networks",
@@ -514,13 +475,6 @@ Expires: March 7, 2022                                          Ericsson
               Using Channel State Information", Sensors 2018, 18(10),
               3379 , October 2018.
 
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                 [Page 8]
- 
-Internet-Draft        IoT Sensing Problem Statement       September 2021
-
-
    [Ma]       Ma, Y., Arshad, S., Muniraju, S., Torkildson, E., Rantala,
               E., Doppler, K., and G. Zhou, "Location-and Person-
               Independent Activity Recognition with WiFi, Deep Neural
@@ -531,7 +485,13 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
               State Information: A Survey,", ACM Computing Surveys
               (CSUR), , vol. 52, no. 3, pp. 1-36, 2019.
 
-   [Pahlavan]
+   [masa]     Richardson, M. and J. Yang, "Operational Considerations for
+              Voucher infrastructure for BRSKI MASA", Work in Progress,
+              Internet-Draft, draft-richardson-anima-masa-considerations-05,
+              March 2021, https://www.ietf.org/archive/id/draft-richardson-
+              anima-masa-considerations-05.txt
+
+[Pahlavan]
               Pahlavan, K. and P. Krishnamurthy, "Evolution and Impact
               of Wi Fi Technology and Applications: A Historical
               Perspective", Springer Science+Business Media, LLC, part
@@ -540,6 +500,13 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    [Qian]     Qian, K. and C. Wu, et al., "Widar: Decimeter-level
               Passive Tracking via Velocity Monitoring with Commodity
               WiFi,", Proc. of ACM MobiCom, , 2017.
+
+              
+   [registra] Richardson, M. and J. Yang, "Operational Considerations for
+              BRSKI Registrar", Work in Progress, Internet-Draft,
+              draft-richardson-anima-registrar-considerations-04, July
+              2020, https://www.ietf.org/archive/id/draft-richardson-anima
+              -registrar-considerations-04.txt
 
    [Rest21]   Restuccia, F., "IEEE 802.11bf: Toward Ubiquitous Wi-Fi
               Sensing", arXiv preprint arXiv:2103.14918 7 pages, March
@@ -554,8 +521,10 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
    [RFC8576]  Garcia-Morchon O., Kumar, S., and M. Sethi, "Internet of
               Things (IoT) Security: State of the Art and Challenges",
               RFC 8576, DOI 10.17487/RFC8576, April 2019,
-              <https://www.rfc-editor.org/info/rfc8576>. 
- 
+              <https://www.rfc-editor.org/info/rfc8576>.
+              
+   [RFC8995]  ‘Bootstrapping Remote Secure Key Infrastructure’
+   
    [Tian]     Tian, Q., Lin, Y., Guo, X., Wang, J., AlFarraj, O., and A.
               Tolba, "An Identity Authentication Method of a MIoT Device
               Based on Radio Frequency (RF) Fingerprint Technology",
@@ -566,13 +535,6 @@ Internet-Draft        IoT Sensing Problem Statement       September 2021
               with Commodity WiFi,", ACM Transactions on Intelligent
               Systems and Technology (TIST), vol. 9, no. 1, pp. 1-27,
               2017.
-
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                 [Page 9]
- 
-Internet-Draft        IoT Sensing Problem Statement       September 2021
-
 
    [Wang2]    Wang, X. and C. Yang, et al., "PhaseBeat: Exploiting CSI
               Phase Data for Vital Sign Monitoring with Commodity WiFi
@@ -600,30 +562,3 @@ Authors' Addresses
    Behcet Sarikaya
 
    Email: sarikaya@ieee.org
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-von Hugo & Sarikaya       Expires March 6, 2022                [Page 10]
-

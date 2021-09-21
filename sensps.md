@@ -62,6 +62,12 @@ informative:
     - ins: H. Schulzrinne
       org: IEEE Future Networks Webinar
     date: " February 2021"
+  Henning2:
+    title: How do we program the Internet of Things at scale?
+    author:
+    - ins: Jan Janak, Luoyao Hao and Henning Schulzrinne
+      org: RIOT Key Note Presentation
+    date: "September 2021"
   IEEE802.1X:
     title: Institute of Electrical and Electronics Engineers,    "802.1X - Port Based
       Network Access Control"
@@ -603,6 +609,9 @@ and to the network a set of potential technologies are identified and
 described to allow for analysis in terms of criteria as reliable
 operation (working), scalability, ease of use and convenience,
 security, and many more.
+Sensing is critical to Hardware Based Authentication because sensing 
+(together with intelligent interpretation using possibly neural network models) will allow the detection of the device playing a melody, blinking red and blue,
+ being pointed at, or somebody just touched and the like.
 Furthermore, the method should be applicable to future generations of
 network and of users, upcoming new applications and devices, assuming
 that todays established standard procedures do not fulfill the
@@ -624,6 +633,13 @@ of approaches and interest in this topic {{Rest21}}.
 on the evolution of Wi-Fi technology and on investigations in
 opportunistic applications of Wi-Fi signals for gesture and motion
 detection.
+
+{{Henning2}} is investigating geospatial access control for IoT. There are 
+attribute, role and identity based, time based and geospatial access control 
+techniques. Real-world IoT access control policies will be a combination of all
+ three, leading to powerful access control techniques to use in practice such as
+ in university campus. Such access control or authorization techniques will 
+likely be used in conjunction with Hardware Based Authentication.
 
 Other notable literature includes {{Al-Qaness}} on the so-called
 device-free CSI-based Wi-Fi sensing mechanism, {{Pahlavan}} using Wi-Fi

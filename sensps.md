@@ -677,6 +677,11 @@ software-based authentication procedures.
 security considerations including the area of authentication and
 documents their specific security challenges, threat models, and
 possible mitigations.
+Also the OAuth [RFC6749] protocol is referred to which extends traditional client-server authentication by
+providing a third party client with a token instead of allowing it to
+use the resource owner's credentials to access protected resources
+while such token resembles a different set of credentials than those
+of the resource owner.
 [to be continued]
 
 # Hardware IoT Authentication Problem {#nextgen}
@@ -703,12 +708,29 @@ components.
 On all levels of handling these data, i.e., storage, processing, and
 transport via a communication network, the integrity of the content
 has to be preserved.
+One should keep in mind, that any unintended authentication request
+should be prevented to minimize the risk of occasional attachment to 
+networks and subsequent exposure to attack to sensitive user data.
 
 ## Architectural and Procedural Issues for Future IP-based IoT-Authentication {#IPwork}
 
 Here we will discuss possible solutions on IP level and identify
 benefits and potential gaps towards the requirements of next
 generation IoT systems.
+On IP or network layer for IPv6 IPsec protocol suite is mandatory and
+provides end-to-end security for authentication procedures, ensuring
+confidentiality and integrity of the transmitted data.
+Authentication for IoT may rely on a protocol as 6LowPAN (Low-power
+Wireless Personal Area Network) which is deﬁned for optimizing the
+efficient routing of IPv6 packets for resource constrained machine-
+type communication applications.
+When compared to a fully certificate-based authentication, however, a
+hardware-based AAA mechanism relying e.g., on WiFi sensing gesture
+detection does not require the user to know any key, identifier, or
+password for the device to be authenticated.  A pre-defined type of access
+to the device (e.g., physical, photographic or video representation,
+unique description in terms of parameters, etc.) shall be sufficient for
+authentication.
 
 # IANA Considerations  {#IANA}
 

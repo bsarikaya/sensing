@@ -18,7 +18,7 @@ title: Problem Statement for  Internet of Things Sensing
 abbrev: IoT Sensing Problem Statement
 date: 2021
 author:
-- ins: D. H. von Hugo
+- ins: D. von Hugo
   name: Dirk von Hugo
   org: Deutsche Telekom
   abbrev: Deutsche Telekom
@@ -34,6 +34,7 @@ normative:
   RFC2119:
 informative:
   RFC8576:
+  RFC8995:
   RFC6740:
   RFC6830:
   BFUseCases:
@@ -740,6 +741,7 @@ Authentication for IoT may rely on a protocol as 6LowPAN (Low-power
 Wireless Personal Area Network) which is deﬁned for optimizing the
 efficient routing of IPv6 packets for resource constrained machine-
 type communication applications.
+
 When compared to a fully certificate-based authentication, however, a
 hardware-based AAA mechanism relying e.g., on WiFi sensing gesture
 detection does not require the user to know any key, identifier, or
@@ -747,6 +749,22 @@ password for the device to be authenticated.  A pre-defined type of access
 to the device (e.g., physical, photographic or video representation,
 unique description in terms of parameters, etc.) shall be sufficient for
 authentication.
+
+[RFC8995] on ‘Bootstrapping Remote Secure Key Infrastructure’ (BRSKI) deals 
+with authentication of devices, including sending authorizations to the 
+device as to what network they should join, and how to authenticate that 
+network by specifying automated bootstrapping of an Autonomic Control Plane (ACP).
+Secure Key Infrastructure (SKI) bootstrapping using manufacturer-installed X.509
+certificates combined with a manufacturer's authorizing service, both online and
+offline, is called the Bootstrapping Remote Secure Key Infrastructure (BRSKI)
+protocol.  Bootstrapping a new device can occur when using a routable address 
+and a cloud service, only link-local connectivity, or limited/disconnected networks
+and includes support for deployment models with less stringent security requirements.
+When the cryptographic identity of the new SKI is successfully deployed to the
+device, completion of bootstrapping is achieved. A locally issued certificate can
+be deployed to the device via the established secure connection as well.
+
+[to be continued]
 
 # IANA Considerations  {#IANA}
 

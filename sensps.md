@@ -27,16 +27,15 @@ author:
   code: 64295
   country: Germany
   email: Dirk.von-Hugo@telekom.de
-- ins: B. S. Sarikaya
+- ins: B.  Sarikaya
   name: Behcet Sarikaya
   email: sarikaya@ieee.org
 normative:
   RFC2119:
 informative:
+  RFC6749:
   RFC8576:
   RFC8995:
-  RFC6740:
-  RFC6830:
   BFUseCases:
     title: Institute of Electrical and Electronics Engineers, IEEE P802.11 - TASK
       GROUP BF (WLAN SENSING) 11-20/1712r2  "WiFi Sensing Use Cases"
@@ -175,57 +174,6 @@ informative:
     author:
     - org: IEEE
     date: 2016-12
-  dh:
-    title: New directions in cryptography
-    author:
-    - ins: W. Diffie
-      org: ''
-    - ins: M. E. Hellman
-      org: ''
-    date: 1976
-    seriesinfo:
-      IEEE Transactions on Information Theory: ''
-      vol.: '22'
-      no.: '6'
-      pp.: 644-654
-  Abosata:
-    title: 'Internet of Things for System Integrity: A Comprehensive Survey on Security,
-      Attacks and Countermeasures for Industrial Applications'
-    author:
-    - ins: N. Abosata
-      name: Nasr Abosata
-      org: ''
-    - ins: S. Al-Rubaye
-      name: Saba Al-Rubaye
-      org: ''
-    - ins: G. Inalhan
-      name: Gokhan Inalhan
-      org: ''
-    - ins: C. Emmanouilidis
-      name: Christos Emmanouilidis
-      org: ''
-    date: " February 2021"
-    seriesinfo:
-      Sensors 2021, 21, 3654: ''
-  Abuhamad:
-    title: 'Sensor-based Continuous Authentication of Smartphones'' Users Using Behavioral
-      Biometrics: A Contemporary Survey'
-    author:
-    - ins: M. Abuhamad
-      name: Mohammed Abuhamad
-      org: ''
-    - ins: A. Abusnaina
-      name: Ahmed Abusnaina
-      org: ''
-    - ins: D. Nyang
-      name: DaeHun Nyang
-      org: ''
-    - ins: D. Mohaisen
-      name: David Mohaisen
-      org: ''
-    date: 2021
-    seriesinfo:
-      Computer Science, IEEE Internet of Things Journal: ''
   Al-Qaness:
     title: 'Channel State Information (CSI) from Pure Communication to Sense and Track
       Human Motion: A Survey'
@@ -699,7 +647,6 @@ providing a third party client with a token instead of allowing it to
 use the resource owner's credentials to access protected resources
 while such token resembles a different set of credentials than those
 of the resource owner.
-[to be continued]
 
 # Hardware IoT Authentication Problem {#nextgen}
 
@@ -764,7 +711,6 @@ When the cryptographic identity of the new SKI is successfully deployed to the
 device, completion of bootstrapping is achieved. A locally issued certificate can
 be deployed to the device via the established secure connection as well.
 
-[to be continued]
 
 # IANA Considerations  {#IANA}
 

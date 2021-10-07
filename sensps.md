@@ -468,8 +468,8 @@ document.
 
 
 
-IEEE 802.11 has a project on Wireless LAN (WLAN sensing) and 802.11bf
-task group (TG) in charge of this project {{BFSFD}}.
+IEEE 802.11 {{IEEE802.11}} has a project on Wireless LAN (WLAN sensing)
+and 802.11bf task group (TG) in charge of this project {{BFSFD}}.
 Use cases for 802.11bf TG includes room sensing, i.e., presence
 detection, counting the number of people in the room, localization of
 active people, audio with user detection, gesture recognition at
@@ -574,11 +574,13 @@ networks research results developed by the academia.
 
 # State of the Academic Approaches to IoT Authentication {#solutions}
 
+A detailed review on current topics in IoT Security, Device Authentication
+and Access Control was provided in {{Inayat}}. 
 The following list of literature on sensor data and WiFi sensing for
 securing and authenticating a user and a device shows the wide range
 of approaches and interest in this topic {{Rest21}}.
 
-{{Ma}}, {{Wang}}, {{Zhu}}, {{Wang2}}, {{Qian}} provide a holistic overview
+{{Ma}}, {{Wang}}, {{Zhu}}, {{Wang2}}, and {{Qian}} provide a holistic overview
 on the evolution of Wi-Fi technology and on investigations in
 opportunistic applications of Wi-Fi signals for gesture and motion
 detection.
@@ -622,7 +624,7 @@ extremely low latency, thus enabling a lightweight multi-node
 PHY-layer authentication.
 
 Further research on these and similar issues can be found in {{Tian}},
-{{Bai}} {{Axente}}.
+{{Bai}}, and {{Axente}}.
 
 #  IoT Authentication Protocols {#iot}
 

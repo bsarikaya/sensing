@@ -5,7 +5,7 @@
 Network Working Group                                        D. von Hugo
 Internet-Draft                                          Deutsche Telekom
 Intended status: Standards Track                             B. Sarikaya
-Expires: 8 April 2022                                     5 October 2021
+Expires: 10 April 2022                                    7 October 2021
 
 
             Problem Statement for Internet of Things Sensing
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 April 2022.
+   This Internet-Draft will expire on 10 April 2022.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 1]
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 1]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
@@ -91,16 +91,16 @@ Table of Contents
    need is hardware based admission model.  Such a model will enable
    many new applications as we explain more in this document.
 
-   IEEE 802.11 has a project on Wireless LAN (WLAN sensing) and 802.11bf
-   task group (TG) in charge of this project [BFSFD].  Use cases for
-   802.11bf TG includes room sensing, i.e., presence detection, counting
-   the number of people in the room, localization of active people,
-   audio with user detection, gesture recognition at different ranges,
-   device proximity detection, home appliance control.  There are also
-   health care related use cases like breathing/heart rate detection,
-   surveillance of persons of interest, building a 3D picture of an
-   environment, in car sensing for driver sleepiness detection
-   [BFUseCases].
+   IEEE 802.11 [IEEE802.11] has a project on Wireless LAN (WLAN sensing)
+   and 802.11bf task group (TG) in charge of this project [BFSFD].  Use
+   cases for 802.11bf TG includes room sensing, i.e., presence
+   detection, counting the number of people in the room, localization of
+   active people, audio with user detection, gesture recognition at
+   different ranges, device proximity detection, home appliance control.
+   There are also health care related use cases like breathing/heart
+   rate detection, surveillance of persons of interest, building a 3D
+   picture of an environment, in car sensing for driver sleepiness
+   detection [BFUseCases].
 
    Hardware based authentication that we address in this document builds
    on similar use cases.  We can summarize the use cases we are
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 2]
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 2]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
@@ -165,7 +165,7 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
 
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 3]
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 3]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
@@ -221,19 +221,21 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
 
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 4]
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 4]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
 4.  State of the Academic Approaches to IoT Authentication
 
-   The following list of literature on sensor data and WiFi sensing for
+   A detailed review on current topics in IoT Security, Device
+   Authentication and Access Control was provided in [Inayat].  The
+   following list of literature on sensor data and WiFi sensing for
    securing and authenticating a user and a device shows the wide range
    of approaches and interest in this topic [Rest21].
 
-   [Ma], [Wang], [Zhu], [Wang2], [Qian] provide a holistic overview on
-   the evolution of Wi-Fi technology and on investigations in
+   [Ma], [Wang], [Zhu], [Wang2], and [Qian] provide a holistic overview
+   on the evolution of Wi-Fi technology and on investigations in
    opportunistic applications of Wi-Fi signals for gesture and motion
    detection.
 
@@ -265,23 +267,6 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    adverse channel conditions, i.e., presence of noise and interference
    from other technologies.
 
-
-
-
-
-
-
-
-
-
-
-
-
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 5]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
-
    [Restuccia] investigates data driven algorithms, neural networks,
    especially convolutional neural network (CNN) or digital signal
    processing (DSP) block to classify complex sensing phenomena.  Also
@@ -289,12 +274,20 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    wireless sensor networks (IWSNs) by neural network based algorithms
    for sensor nodes' authentication and implementations in IWSNs have
    shown that an improved convolution preprocessing neural network
+
+
+
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 5]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
+
    (CPNN)-based algorithm requires few computing resources and has
    extremely low latency, thus enabling a lightweight multi-node PHY-
    layer authentication.
 
    Further research on these and similar issues can be found in [Tian],
-   [Bai] [Axente].
+   [Bai], and [Axente].
 
 5.  IoT Authentication Protocols
 
@@ -330,14 +323,6 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    On the other hand to authenticate a device based on a set of
    characteristic parameters which should be flexibly chosen by the
    owner and subsequently made known to the authentication system will
-
-
-
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 6]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
-
    require a certain level of processing and storage capacity either
    within the local system components (e.g., the device itself and the
    wireless point of attachment or access point) and/or within the
@@ -345,6 +330,14 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    result of the detection process (e.g., radio wave analysis outcome in
    terms of parameters as modulation scheme, number of carriers, and
    fingerprinting) has to be compared with the required (correct)
+
+
+
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 6]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
+
    parameter values which are safely stored within the network
    components.  On all levels of handling these data, i.e., storage,
    processing, and transport via a communication network, the integrity
@@ -386,18 +379,20 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    occur when using a routable address and a cloud service, only link-
    local connectivity, or limited/disconnected networks and includes
    support for deployment models with less stringent security
-
-
-
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 7]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
-
    requirements.  When the cryptographic identity of the new SKI is
    successfully deployed to the device, completion of bootstrapping is
    achieved.  A locally issued certificate can be deployed to the device
    via the established secure connection as well.
+
+
+
+
+
+
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 7]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
 
 7.  IANA Considerations
 
@@ -441,18 +436,19 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               Networks: A Survey", Journal of Communications and
               Information Networks Vol.5, No.3, September 2020.
 
-
-
-
-
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 8]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
-
    [BFSFD]    IEEE, "Institute of Electrical and Electronics Engineers,
               IEEE P802.11 - TASK GROUP BF (WLAN SENSING) 11-21/0504r2
               "Specification Framework for TGbf"", July 2021.
+
+
+
+
+
+
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 8]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
 
    [BFUseCases]
               IEEE, "Institute of Electrical and Electronics Engineers,
@@ -497,20 +493,18 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               authentication for industrial wireless sensor networks",
               Sensors 2019, 19(11), 2440 , May 2019.
 
-
-
-
-
-von Hugo & Sarikaya       Expires 8 April 2022                  [Page 9]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
-
    [Liao2]    Liao, R.-F., Wen, H., Wen, H., Xie, F., Pan, F., Pan, F.,
               and F. Xie, "Multiuser Physical Layer Authentication in
               Internet of Things With Data Augmentation", IEEE Internet
               of Things Journal, vol. 7, no. 3, pp. 2077-2088 , March
               2020.
+
+
+
+von Hugo & Sarikaya       Expires 10 April 2022                 [Page 9]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
 
    [Lui]      Liu, J., Wang, L., Fang, J., Guo, L., Lu, B., and L. Shu,
               "Multi-Target Intense Human Motion Analysis and Detection
@@ -553,19 +547,20 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               RFC 8576, DOI 10.17487/RFC8576, April 2019,
               <https://www.rfc-editor.org/info/rfc8576>.
 
-
-
-
-
-von Hugo & Sarikaya       Expires 8 April 2022                 [Page 10]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
-
    [RFC8995]  Pritikin, M., Richardson, M., Eckert, T., Behringer, M.,
               and K. Watsen, "Bootstrapping Remote Secure Key
               Infrastructure (BRSKI)", RFC 8995, DOI 10.17487/RFC8995,
               May 2021, <https://www.rfc-editor.org/info/rfc8995>.
+
+
+
+
+
+
+von Hugo & Sarikaya       Expires 10 April 2022                [Page 10]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
 
    [Tian]     Tian, Q., Lin, Y., Guo, X., Wang, J., AlFarraj, O., and A.
               Tolba, "An Identity Authentication Method of a MIoT Device
@@ -613,4 +608,9 @@ Authors' Addresses
 
 
 
-von Hugo & Sarikaya       Expires 8 April 2022                 [Page 11]
+
+
+
+
+
+von Hugo & Sarikaya       Expires 10 April 2022                [Page 11]

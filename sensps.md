@@ -443,7 +443,7 @@ as a future
 networking area beyond
 5G going into 6G for standardization. The problem of hardware authentication
 is discussed and
-its relationship with Wireless Local Area network collaborative and/ or multi-band
+its relationship with Wireless Local Area network collaborative and/or multi-band
 sensing is established
 and then recent
 research efforts in the area are indicated.
@@ -476,7 +476,7 @@ active people, audio with user detection, gesture recognition at
 different ranges, device proximity detection, home appliance control.
 There are also health care related use cases like breathing/heart rate
 detection, surveillance of persons of interest, building a 3D picture
-of an environment, in car sensing for driver sleepiness detection
+of an environment, as, e.g., in-car sensing for driver sleepiness detection
 {{BFUseCases}}.
 
 Hardware based authentication that we address in this document builds
@@ -489,16 +489,16 @@ camera is pointed at it; and the like {{Henning}}.
 802.11bf sensing project provides proper framework for hardware based
 authentication because 802.11 or Wi-Fi devices are more and more
 diverse spanning from personal computers, smartphones, televisions,
-tablets and all sorts of IoT devices or sensors.
+tablets, and all sorts of IoT devices or sensors.
 
 TGbf is also working on Specification Framework Document with an
-outline of each the functional blocks that will be a part of the final
+outline of each of the functional blocks that will be a part of the final
 amendment like wireless LAN sensing procedure {{BFSFD}}.
 TGbf sensing is based on obtaining physical Channel State Information
 (CSI) measurements between a transmitter and receiver WLAN nodes,
 called stations (STA). Using these measurements, presence of obstacles
 between a transmitter and receiver can be detected and tracked. This
-way, using feature extraction and classification of artificial
+way, using feature extraction and classification provided by means of artificial
 intelligence (AI), more higher level tasks like human activity
 recognition and object detection are available for authentication
 purposes, while hardware based authentication use cases can be
@@ -524,7 +524,7 @@ house, office, room, vehicle, enterprise, etc.).
 Collaborative sensing (CSENS) defines the operation in which multiple
 SENS enabled devices can collaborate as a group in an orderly fashion
 to capture additional information about the surrounding environment
-and allow for more precise detection thus enabling a more reliable
+and allow for more precise detection, thus enabling a more reliable
 authentication.
 
 Multi-band sensing is defined as sensing using both sub-7-GHz Channel

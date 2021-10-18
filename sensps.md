@@ -31,11 +31,12 @@ author:
   name: Behcet Sarikaya
   email: sarikaya@ieee.org
 normative:
-  RFC2119:
+  
 informative:
   RFC6749:
   RFC8576:
   RFC8995:
+  I-D.irtf-t2trg-secure-bootstrapping-00:
   BFUseCases:
     title: Institute of Electrical and Electronics Engineers, IEEE P802.11 - TASK
       GROUP BF (WLAN SENSING) 11-20/1712r2  "WiFi Sensing Use Cases"
@@ -511,9 +512,12 @@ CSENS) where multiple SENS-enabled devices can collaborate as a group
 in an orderly fashion to capture additional information about the
 surrounding environment {{Rest21}}.
 
-# Conventions and Terminology
-
-{::boilerplate bcp14-tagged}
+## Conventions and Terminology
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+"MAY", and "OPTIONAL" in this document are to be interpreted as
+described in BCP 14 {{!RFC2119}} {{!RFC8174}} when, and only when, they
+appear in all capitals, as shown here.
 
 Sensing (SENS) is defined as the usage of received Wi-Fi signals from
 a Station (STA) to detect features (i.e., range, velocity, angular,
@@ -619,7 +623,7 @@ Also {{Liao}} and {{Liao2}} proposed to enhance security of industrial
 wireless sensor networks (IWSNs) by neural network based algorithms
 for sensor nodes' authentication and implementations in IWSNs have
 shown that an improved convolution preprocessing neural network
-(CPNN)-based algorithm requires few computing resources and has
+(CNN)-based algorithm requires few computing resources and has
 extremely low latency, thus enabling a lightweight multi-node
 PHY-layer authentication.
 
@@ -644,7 +648,10 @@ software-based authentication procedures.
 security considerations including the area of authentication and
 documents their specific security challenges, threat models, and
 possible mitigations.
-Also the OAuth [RFC6749] protocol is referred to which extends traditional client-server authentication by
+
+A more recent work surveys secure bootstrapping and onboarding protocols {{I-D.irtf-t2trg-secure-bootstrapping-00}} developed by IETF as well as other standards developing organizations such as IEEE, FIDO alliance, Open Connectivity Foundation (OCF), Open Mobile Alliance (OMA).
+
+Lastly,  the Open Authorization (OAuth) [RFC6749] protocol in the area of authorization is a standard for access delegation. It extends traditional client-server authentication by
 providing a third party client with a token instead of allowing it to
 use the resource owner's credentials to access protected resources
 while such token resembles a different set of credentials than those
@@ -687,7 +694,7 @@ On IP or network layer for IPv6 IPsec protocol suite is mandatory and
 provides end-to-end security for authentication procedures, ensuring
 confidentiality and integrity of the transmitted data.
 Authentication for IoT may rely on a protocol as 6LowPAN (Low-power
-Wireless Personal Area Network) which is deﬁned for optimizing the
+Wireless Personal Area Network) which is defined for optimizing the
 efficient routing of IPv6 packets for resource constrained machine-
 type communication applications.
 
@@ -725,12 +732,8 @@ how to increase security in future IoT by discussing the issues of
 robust but easy to apply authentication mechanisms.
 
 
+# Acknowledgements {#acks}
 
-
-
+TBD.
 
 --- back
-
-
-# Acknowledgements {#acks}
-{:unnumbered}

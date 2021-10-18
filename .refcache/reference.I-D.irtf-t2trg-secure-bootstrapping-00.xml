@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reference anchor="I-D.irtf-t2trg-secure-bootstrapping">
+   <front>
+      <title>Secure IoT Bootstrapping: A Survey</title>
+      <author initials="M." surname="Sethi" fullname="Mohit Sethi">
+         <organization>Ericsson</organization>
+      </author>
+      <author initials="B." surname="Sarikaya" fullname="Behcet Sarikaya">
+         <organization>Denpel Informatique</organization>
+      </author>
+      <author initials="D." surname="Garcia-Carrillo" fullname="Dan Garcia-Carrillo">
+         <organization>University of Oviedo</organization>
+      </author>
+      <date month="April" day="7" year="2021" />
+      <abstract>
+	 <t>   This draft provides an overview of the various terms that are used
+   when discussing bootstrapping of IoT devices.  We document terms that
+   have been used within the IETF as well as other standards bodies.  We
+   investigate if the terms refer to the same phenomena or have subtle
+   differences.  We provide recommendations on the applicability of
+   terms in different contexts.  Finally, this document presents a
+   survey of secure bootstrapping mechanisms available for smart objects
+   that are part of an Internet of Things (IoT) network.  The survey
+   does not prescribe any one mechanism and rather presents IoT
+   developers with different options to choose from, depending on their
+   use-case, security requirements, and the user interface available on
+   their IoT devices.
+
+	 </t>
+      </abstract>
+   </front>
+   <seriesInfo name="Internet-Draft" value="draft-irtf-t2trg-secure-bootstrapping-00" />
+   <format type="TXT" target="https://www.ietf.org/archive/id/draft-irtf-t2trg-secure-bootstrapping-00.txt" />
+</reference>

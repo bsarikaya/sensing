@@ -5,7 +5,7 @@
 Network Working Group                                        D. von Hugo
 Internet-Draft                                          Deutsche Telekom
 Intended status: Standards Track                             B. Sarikaya
-Expires: 11 April 2022                                    8 October 2021
+Expires: 18 April 2022                                   15 October 2021
 
 
             Problem Statement for Internet of Things Sensing
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 April 2022.
+   This Internet-Draft will expire on 18 April 2022.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 1]
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 1]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
@@ -61,19 +61,19 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   2.  Conventions and Terminology . . . . . . . . . . . . . . . . .   3
-   3.  Hardware Based Authentication . . . . . . . . . . . . . . . .   4
-   4.  State of the Academic Approaches to IoT Authentication  . . .   5
-   5.  IoT Authentication Protocols  . . . . . . . . . . . . . . . .   6
-   6.  Hardware IoT Authentication Problem . . . . . . . . . . . . .   6
-     6.1.  Architectural and Procedural Issues for Future IP-based
+     1.1.  Conventions and Terminology . . . . . . . . . . . . . . .   3
+   2.  Hardware Based Authentication . . . . . . . . . . . . . . . .   4
+   3.  State of the Academic Approaches to IoT Authentication  . . .   5
+   4.  IoT Authentication Protocols  . . . . . . . . . . . . . . . .   6
+   5.  Hardware IoT Authentication Problem . . . . . . . . . . . . .   6
+     5.1.  Architectural and Procedural Issues for Future IP-based
            IoT-Authentication  . . . . . . . . . . . . . . . . . . .   7
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
-   8.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   8
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
      9.2.  Informative References  . . . . . . . . . . . . . . . . .   8
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  11
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
 
 1.  Introduction
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 2]
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 2]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
@@ -141,12 +141,12 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    devices can collaborate as a group in an orderly fashion to capture
    additional information about the surrounding environment [Rest21].
 
-2.  Conventions and Terminology
+1.1.  Conventions and Terminology
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in
-   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
    Sensing (SENS) is defined as the usage of received Wi-Fi signals from
@@ -165,7 +165,7 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
 
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 3]
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 3]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
@@ -178,7 +178,7 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    through the usage of beamforming toward a given receiver, but have
    small range due to the presence of blockers (e.g., walls).
 
-3.  Hardware Based Authentication
+2.  Hardware Based Authentication
 
    Aim of this document is to lay ground for the need for new
    authentication models in the framework of devices (e.g., machines in
@@ -221,12 +221,12 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
 
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 4]
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 4]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
-4.  State of the Academic Approaches to IoT Authentication
+3.  State of the Academic Approaches to IoT Authentication
 
    A detailed review on current topics in IoT Security, Device
    Authentication and Access Control was provided in [Inayat].  The
@@ -277,19 +277,19 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
 
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 5]
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 5]
 
 Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
-   (CPNN)-based algorithm requires few computing resources and has
+   (CNN)-based algorithm requires few computing resources and has
    extremely low latency, thus enabling a lightweight multi-node PHY-
    layer authentication.
 
    Further research on these and similar issues can be found in [Tian],
    [Bai], and [Axente].
 
-5.  IoT Authentication Protocols
+4.  IoT Authentication Protocols
 
    Since IoT applications cover a broad range of domains from smart
    cities, industry, and homes to personal (e.g., wearable) devices,
@@ -305,20 +305,38 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    serves as a reference for details about IoT specific security
    considerations including the area of authentication and documents
    their specific security challenges, threat models, and possible
-   mitigations.  Also the OAuth [RFC6749] protocol is referred to which
-   extends traditional client-server authentication by providing a third
-   party client with a token instead of allowing it to use the resource
+   mitigations.
+
+   A more recent work surveys secure bootstrapping and onboarding
+   protocols [I-D.irtf-t2trg-secure-bootstrapping-00] developed by IETF
+   as well as other standards developing organizations such as IEEE,
+   FIDO alliance, Open Connectivity Foundation (OCF), Open Mobile
+   Alliance (OMA).
+
+   Lastly, the Open Authorization (OAuth) [RFC6749] protocol in the area
+   of authorization is a standard for access delegation.  It extends
+   traditional client-server authentication by providing a third party
+   client with a token instead of allowing it to use the resource
    owner's credentials to access protected resources while such token
    resembles a different set of credentials than those of the resource
    owner.
 
-6.  Hardware IoT Authentication Problem
+5.  Hardware IoT Authentication Problem
 
    Most of the state-of-art hardware identification techniques to
    authenticate the user use finger prints a.k.a. touch id and facial
    identification and they use detection by hardware i.e. touch,
    accelerometer, and gyro sensors or cameras.  They are based on
    creating a signature, or the user's already stored password [Wang3].
+
+
+
+
+
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 6]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
 
    On the other hand to authenticate a device based on a set of
    characteristic parameters which should be flexibly chosen by the
@@ -330,14 +348,6 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    result of the detection process (e.g., radio wave analysis outcome in
    terms of parameters as modulation scheme, number of carriers, and
    fingerprinting) has to be compared with the required (correct)
-
-
-
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 6]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
-
    parameter values which are safely stored within the network
    components.  On all levels of handling these data, i.e., storage,
    processing, and transport via a communication network, the integrity
@@ -346,7 +356,7 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    the risk of occasional attachment to networks and subsequent exposure
    to attack to sensitive user data.
 
-6.1.  Architectural and Procedural Issues for Future IP-based IoT-
+5.1.  Architectural and Procedural Issues for Future IP-based IoT-
       Authentication
 
    Here we will discuss possible solutions on IP level and identify
@@ -356,8 +366,8 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    authentication procedures, ensuring confidentiality and integrity of
    the transmitted data.  Authentication for IoT may rely on a protocol
    as 6LowPAN (Low-power Wireless Personal Area Network) which is
-   de&#64257;ned for optimizing the efficient routing of IPv6 packets
-   for resource constrained machine- type communication applications.
+   defined for optimizing the efficient routing of IPv6 packets for
+   resource constrained machine- type communication applications.
 
    When compared to a fully certificate-based authentication, however, a
    hardware-based AAA mechanism relying e.g., on WiFi sensing gesture
@@ -376,6 +386,14 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    certificates combined with a manufacturer's authorizing service, both
    online and offline, is called the Bootstrapping Remote Secure Key
    Infrastructure (BRSKI) protocol.  Bootstrapping a new device can
+
+
+
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 7]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
+
    occur when using a routable address and a cloud service, only link-
    local connectivity, or limited/disconnected networks and includes
    support for deployment models with less stringent security
@@ -384,25 +402,19 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    achieved.  A locally issued certificate can be deployed to the device
    via the established secure connection as well.
 
-
-
-
-
-
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 7]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
-
-7.  IANA Considerations
+6.  IANA Considerations
 
    TBD.
 
-8.  Security Considerations
+7.  Security Considerations
 
    This document raises no new security concerns but tries to identify
    how to increase security in future IoT by discussing the issues of
    robust but easy to apply authentication mechanisms.
+
+8.  Acknowledgements
+
+   TBD.
 
 9.  References
 
@@ -431,6 +443,13 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               Method for Mobile Devices", Sensors 2020, 20, 4110 , July
               2020.
 
+
+
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 8]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
+
    [Bai]      Bai, L., Zhu, L., Liu, J., Choi, J., and W. Zhang,
               "Physical Layer Authentication in Wireless Communication
               Networks: A Survey", Journal of Communications and
@@ -439,16 +458,6 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
    [BFSFD]    IEEE, "Institute of Electrical and Electronics Engineers,
               IEEE P802.11 - TASK GROUP BF (WLAN SENSING) 11-21/0504r2
               "Specification Framework for TGbf"", July 2021.
-
-
-
-
-
-
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 8]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
 
    [BFUseCases]
               IEEE, "Institute of Electrical and Electronics Engineers,
@@ -472,6 +481,13 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               we program the Internet of Things at scale?", September
               2021.
 
+   [I-D.irtf-t2trg-secure-bootstrapping-00]
+              Sethi, M., Sarikaya, B., and D. Garcia-Carrillo, "Secure
+              IoT Bootstrapping: A Survey", Work in Progress, Internet-
+              Draft, draft-irtf-t2trg-secure-bootstrapping-00, 7 April
+              2021, <https://www.ietf.org/archive/id/draft-irtf-t2trg-
+              secure-bootstrapping-00.txt>.
+
    [IEEE802.11]
               IEEE, "IEEE Std. 802.11-2016", December 2016,
               <https://standards.ieee.org/findstds/
@@ -481,6 +497,14 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               IEEE, "Institute of Electrical and Electronics Engineers,
               "802.1X - Port Based Network Access Control"", January
               2020.
+
+
+
+
+von Hugo & Sarikaya       Expires 18 April 2022                 [Page 9]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
 
    [Inayat]   Ali, I., Sabir, S., and Z. Ullah, "Internet of Things
               Security, Device Authentication and Access Control: A
@@ -498,13 +522,6 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               Internet of Things With Data Augmentation", IEEE Internet
               of Things Journal, vol. 7, no. 3, pp. 2077-2088 , March
               2020.
-
-
-
-von Hugo & Sarikaya       Expires 11 April 2022                 [Page 9]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
 
    [Lui]      Liu, J., Wang, L., Fang, J., Guo, L., Lu, B., and L. Shu,
               "Multi-Target Intense Human Motion Analysis and Detection
@@ -538,6 +555,13 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               and Beyond,", IEEE Communications Magazine, , vol. 58,
               no. 10, pp. 58-64, 2020.
 
+
+
+von Hugo & Sarikaya       Expires 18 April 2022                [Page 10]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
+
+
    [RFC6749]  Hardt, D., Ed., "The OAuth 2.0 Authorization Framework",
               RFC 6749, DOI 10.17487/RFC6749, October 2012,
               <https://www.rfc-editor.org/info/rfc6749>.
@@ -551,16 +575,6 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               and K. Watsen, "Bootstrapping Remote Secure Key
               Infrastructure (BRSKI)", RFC 8995, DOI 10.17487/RFC8995,
               May 2021, <https://www.rfc-editor.org/info/rfc8995>.
-
-
-
-
-
-
-von Hugo & Sarikaya       Expires 11 April 2022                [Page 10]
-
-Internet-Draft        IoT Sensing Problem Statement         October 2021
-
 
    [Tian]     Tian, Q., Lin, Y., Guo, X., Wang, J., AlFarraj, O., and A.
               Tolba, "An Identity Authentication Method of a MIoT Device
@@ -585,8 +599,6 @@ Internet-Draft        IoT Sensing Problem Statement         October 2021
               IEEE Journal on Selected Areas in Communications, ,
               vol. 35, no. 5, pp. 1090-1103, 2017.
 
-Acknowledgements
-
 Authors' Addresses
 
    Dirk von Hugo
@@ -596,6 +608,14 @@ Authors' Addresses
    Germany
 
    Email: Dirk.von-Hugo@telekom.de
+
+
+
+
+
+von Hugo & Sarikaya       Expires 18 April 2022                [Page 11]
+
+Internet-Draft        IoT Sensing Problem Statement         October 2021
 
 
    Behcet Sarikaya
@@ -613,4 +633,40 @@ Authors' Addresses
 
 
 
-von Hugo & Sarikaya       Expires 11 April 2022                [Page 11]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+von Hugo & Sarikaya       Expires 18 April 2022                [Page 12]

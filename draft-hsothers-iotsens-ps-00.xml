@@ -16,7 +16,7 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 
-<rfc ipr="trust200902" docName="draft-hsothers-iotsens-ps-00.txt" category="std">
+<rfc ipr="trust200902" docName="draft-hsothers-iotsens-ps-00" category="std">
 
   <front>
     <title abbrev="IoT Sensing Problem Statement">Problem Statement for  Internet of Things Sensing</title>

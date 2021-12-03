@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+]>
+
+<?rfc toc="yes"?>
+<?rfc tocompact="yes"?>
+<?rfc tocdepth="3"?>
+<?rfc tocindent="yes"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes"?>
+<?rfc comments="yes"?>
+<?rfc inline="yes"?>
+<?rfc compact="yes"?>
+<?rfc subcompact="no"?>
+
+<rfc ipr="trust200902" docName="draft-hsothers-iotsens-ps-01.txt" category="std">
+
+  <front>
+    <title abbrev="IoT Sensing Problem Statement">Problem Statement for  Internet of Things Sensing</title>
+
+    <author initials="D." surname="von Hugo" fullname="Dirk von Hugo">
+      <organization abbrev="Deutsche Telekom">Deutsche Telekom</organization>
+      <address>
+        <postal>
+          <street>Deutsche-Telekom-Allee 9</street>
+          <city>Darmstadt</city>
+          <code>64295</code>
+          <country>Germany</country>
+        </postal>
+        <email>Dirk.von-Hugo@telekom.de</email>
+      </address>
+    </author>
+    <author initials="B." surname="Sarikaya" fullname="Behcet Sarikaya">
+      <organization></organization>
+      <address>
+        <email>sarikaya@ieee.org</email>
+      </address>
+    </author>
+
+    <date year="2021"/>
+
+    
+    
+    
+
+    <abstract>
+
+
+<t>The document attempts to establish hardware based Internet of Things authentication
+as a future
+networking area beyond
+5G going into 6G for standardization. The problem of hardware authentication
+is discussed and
+its relationship with Wireless Local Area network collaborative and/or multi-band
+sensing is established
+and then recent
+research efforts in the area are indicated.</t>
+
+
+
+    </abstract>
+
+
+  </front>
+
+  <middle>
+
+
+<section anchor="introduction" title="Introduction">
+
+<t>Future networking to make full use of 5G capabilities or even
+resembling an evolution to beyond 5G will have to exploit a much
+more heterogeneous environment in terms of network and device
+connectivity technologies and applications.  In addition ease of use
+for customers and human-independent operation of a multitude of
+devices and machines (things) has to be provided.</t>
+
+<t>Therefore current authentication models like 802.1X <xref target="IEEE802.1X"/> which
+are based on human intervention do not fit well.  Also this model
+does not scale well for the Internet of
+Things (IoT).  What we need is hardware based admission model.  Such
+a model will enable many new applications as we explain more in this
+document.</t>
+
+<t>IEEE 802.11 <xref target="IEEE802.11"/> has a project on Wireless LAN (WLAN sensing)
+and 802.11bf task group (TG) in charge of this project <xref target="BFSFD"/>.
+Use cases for 802.11bf TG includes room sensing, i.e., presence
+detection, counting the number of people in the room, localization of
+active people, audio with user detection, gesture recognition at
+different ranges, device proximity detection, home appliance control.
+There are also health care related use cases like breathing/heart rate
+detection, surveillance of persons of interest, building a 3D picture
+of an environment, as, e.g., in-car sensing for driver sleepiness detection
+<xref target="BFUseCases"/>.</t>
+
+<t>Hardware based authentication that we address in this document builds
+on similar use cases.
+We can summarize the use cases we are currently considering here:
+Authenticating the device that is playing a melody, or a person has
+just touched; authenticating devices, i.e. smart teapot with certain
+manifests, like blinking red and blue; authenticate the device when a
+camera is pointed at it; and the like <xref target="Henning"/>.
+802.11bf sensing project provides proper framework for hardware based
+authentication because 802.11 or Wi-Fi devices are more and more
+diverse spanning from personal computers, smartphones, televisions,
+tablets, and all sorts of IoT devices or sensors.</t>
+
+<t>TGbf is also working on Specification Framework Document with an
+outline of each of the functional blocks that will be a part of the final
+amendment like wireless LAN sensing procedure <xref target="BFSFD"/>.
+TGbf sensing is based on obtaining physical Channel State Information
+(CSI) measurements between a transmitter and receiver WLAN nodes,
+called stations (STA). Using these measurements, presence of obstacles
+between a transmitter and receiver can be detected and tracked. This
+way, using feature extraction and classification provided by means of artificial
+intelligence (AI), more higher level tasks like human activity
+recognition and object detection are available for authentication
+purposes, while hardware based authentication use cases can be
+achieved through computation of phase differences, etc.</t>
+
+<t>TGbf Wi-Fi Sensing (SENS) is achieved by signaling between just an
+initiator and a responder.
+TGbf may also define more effective collaborative SENS (in short,
+CSENS) where multiple SENS-enabled devices can collaborate as a group
+in an orderly fashion to capture additional information about the
+surrounding environment <xref target="Rest21"/>.</t>
+
+<section anchor="conventions-and-terminology" title="Conventions and Terminology">
+<t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+"MAY", and "OPTIONAL" in this document are to be interpreted as
+described in BCP 14 <xref target="RFC2119"/> <xref target="RFC8174"/> when, and only when, they
+appear in all capitals, as shown here.</t>
+
+<t>Sensing (SENS) is defined as the usage of received Wi-Fi signals from
+a Station (STA) to detect features (i.e., range, velocity, angular,
+motion, presence or proximity, gesture, etc.) of intended targets
+(i.e., object, human, animal, etc.) in a given environment (i.e.,
+house, office, room, vehicle, enterprise, etc.).</t>
+
+<t>Collaborative sensing (CSENS) defines the operation in which multiple
+SENS enabled devices can collaborate as a group in an orderly fashion
+to capture additional information about the surrounding environment
+and allow for more precise detection, thus enabling a more reliable
+authentication.</t>
+
+<t>Multi-band sensing is defined as sensing using both sub-7-GHz Channel
+State Information (CSI) measurements that provide indication of
+relatively large motions and that can propagate through obstacles
+(e.g., walls) and 60-GHz Received Signal Strength Indicator (RSSI)
+measurements at mmWave that provide highly-directional information
+through the usage of beamforming toward a given receiver, but have
+small range due to the presence of blockers (e.g., walls).</t>
+
+</section>
+</section>
+<section anchor="hardware-based-authentication" title="Hardware Based Authentication">
+
+<t>Aim of this document is to lay ground for the need for new
+authentication models in the framework of devices (e.g., machines in
+IoT communication) within a (wireless or wireline-based)
+network. Currently employed authentication models (such as e.g.,
+802.1X certificate model) is based on a human being using the machine
+and providing credentials (e.g., user name/password or a permitted
+digital certificate) to the authenticator. Similarly, for user
+equipment (UE) to access a cellular network the device has to be
+equipped with a USIM and the user has to provide a secret key, i.e.,
+PIN (Personal Identification Number).
+With the use case of massive IoT (mIoT) as foreseen, e.g., in 5G and
+with an increasing amount of devices within a household (smart home)
+and/or in the ownership of a customer (smart watch etc.)
+the need for an ease-of-use hardware-based admission model arises.</t>
+
+<t>Focusing on corresponding procedures starting with detection (sensing)
+of a new device and subsequent mutual authenticating of the device by
+and to the network a set of potential technologies are identified and
+described to allow for analysis in terms of criteria as reliable
+operation (working), scalability, ease of use and convenience,
+security, and many more.
+Sensing is critical to Hardware Based Authentication because sensing 
+(together with intelligent interpretation using possibly neural network models) will allow the detection of the device playing a melody, blinking red and blue,
+ being pointed at, or somebody just touched and the like.
+Furthermore, the method should be applicable to future generations of
+network and of users, upcoming new applications and devices, assuming
+that todays established standard procedures do not fulfill the
+requirements sufficiently.</t>
+
+<t>Hardware based authentication should leverage collaborative and
+multi-band sensing technologies to enable sensing with much higher
+precision and capacity using the state-of-art equipment. Also equally
+important is the use of all artificial intelligence and neural
+networks research results developed by the academia.</t>
+
+</section>
+<section anchor="solutions" title="State of the Academic Approaches to IoT Authentication">
+
+<t>A detailed review on current topics in IoT Security, Device Authentication
+and Access Control was provided in <xref target="Inayat"/>. 
+The following list of literature on sensor data and WiFi sensing for
+securing and authenticating a user and a device shows the wide range
+of approaches and interest in this topic <xref target="Rest21"/>.</t>
+
+<t><xref target="Ma"/>, <xref target="Wang"/>, <xref target="Zhu"/>, <xref target="Wang2"/>, and <xref target="Qian"/> provide a holistic overview
+on the evolution of Wi-Fi technology and on investigations in
+opportunistic applications of Wi-Fi signals for gesture and motion
+detection.</t>
+
+<t><xref target="Henning2"/> is investigating geospatial access control for IoT. There are 
+attribute, role and identity based, time based and geospatial access control 
+techniques. Real-world IoT access control policies will be a combination of all
+ three, leading to powerful access control techniques to use in practice such as
+ in university campus. Such access control or authorization techniques will 
+likely be used in conjunction with Hardware Based Authentication.</t>
+
+<t>Other notable literature includes <xref target="Al-Qaness"/> on the so-called
+device-free CSI-based Wi-Fi sensing mechanism, <xref target="Pahlavan"/> using Wi-Fi
+signals for gesture and motion detection as well as for authentication
+and security, <xref target="Lui"/> distinguishing between Line-of-Sight (LOS) and
+Non-Line-of-Sight (NLOS) conditions in case of obstacles appearing
+between the transmitter and the receiver <xref target="Guo"/> studying HuAc (Human
+Activity Recognition) as a combination of WiFi-based and Kinect-based
+activity recognition system, <xref target="FURQAN"/> analyzing the wireless sensing
+and radio environment awareness mechanisms, highlighting their
+vulnerabilities such as dependency of sensing modes on external
+signals, and provides solutions for mitigating them, e.g., the
+different threats to REM (radio environment mapping) and its
+consequences in a vehicular communication scenario.</t>
+
+<t><xref target="Ma2"/> has studied reliable SENS algorithm for human and animal
+identification.
+The aim is to make it resilient to spoofing and adverse channel
+conditions, i.e., presence of noise and interference from other
+technologies.</t>
+
+<t><xref target="Restuccia"/> investigates data driven algorithms, neural networks,
+especially convolutional neural network (CNN) or digital signal
+processing (DSP) block to classify complex sensing phenomena.
+Also <xref target="Liao"/> and <xref target="Liao2"/> proposed to enhance security of industrial
+wireless sensor networks (IWSNs) by neural network based algorithms
+for sensor nodes' authentication and implementations in IWSNs have
+shown that an improved convolution preprocessing neural network
+(CNN)-based algorithm requires few computing resources and has
+extremely low latency, thus enabling a lightweight multi-node
+PHY-layer authentication.</t>
+
+<t>Further research on these and similar issues can be found in <xref target="Tian"/>,
+<xref target="Bai"/>, and <xref target="Axente"/>.</t>
+
+</section>
+<section anchor="iot" title="IoT Authentication Protocols">
+
+<t>Since IoT applications cover a broad range of domains from smart
+cities, industry, and homes to personal (e.g., wearable) devices,
+including security and privacy sensitive areas as e-health, and can
+reach a huge number of entities the security requirements in terms of
+preventing unauthorized access to data are very high.
+Therefore very robust authentication mechanisms have to be applied.
+At the same time depending on the specific scenario a trade-off
+between resources as processing power and memory and security protocol
+complexity has to be considered.
+Also a plethora of attack scenarios has to be in focus as well as
+scalability of the considered implicit and explicit hardware- and
+software-based authentication procedures.
+<xref target="RFC8576"/> serves as a reference for details about IoT specific
+security considerations including the area of authentication and
+documents their specific security challenges, threat models, and
+possible mitigations.</t>
+
+<t>A more recent work surveys secure bootstrapping and onboarding protocols <xref target="I-D.irtf-t2trg-secure-bootstrapping-00"/> developed by IETF as well as other standards developing organizations such as IEEE, FIDO alliance, Open Connectivity Foundation (OCF), Open Mobile Alliance (OMA).</t>
+
+<t>Lastly,  the Open Authorization (OAuth) <xref target="RFC6749"></xref> protocol in the area of authorization is a standard for access delegation. It extends traditional client-server authentication by
+providing a third party client with a token instead of allowing it to
+use the resource owner's credentials to access protected resources
+while such token resembles a different set of credentials than those
+of the resource owner.</t>
+
+</section>
+<section anchor="nextgen" title="Hardware IoT Authentication Problem">
+
+<t>Most of the state-of-art hardware identification techniques to
+authenticate the user use finger prints a.k.a. touch id and facial
+identification and they use detection by hardware i.e. touch,
+accelerometer, and gyro sensors or cameras.
+They are based on creating a signature, or the user's already stored
+password <xref target="Wang3"/>.</t>
+
+<t>On the other hand to authenticate a device based on a set of
+characteristic parameters which should be flexibly chosen by the owner
+and subsequently made known to the authentication system will require
+a certain level of processing and storage capacity either within the
+local system components (e.g., the device itself and the wireless
+point of attachment or access point) and/or within the network (e.g.,
+an edge cloud instance or a central data base).
+The result of the detection process (e.g., radio wave analysis outcome
+in terms of parameters as modulation scheme, number of carriers, and
+fingerprinting) has to be compared with the required (correct)
+parameter values which are safely stored within the network
+components.
+On all levels of handling these data, i.e., storage, processing, and
+transport via a communication network, the integrity of the content
+has to be preserved.
+One should keep in mind, that any unintended authentication request
+should be prevented to minimize the risk of occasional attachment to 
+networks and subsequent exposure to attack to sensitive user data.</t>
+
+<section anchor="IPwork" title="Architectural and Procedural Issues for Future IP-based IoT-Authentication">
+
+<t>Here we will discuss possible solutions on IP level and identify
+benefits and potential gaps towards the requirements of next
+generation IoT systems.
+On IP or network layer for IPv6 IPsec protocol suite is mandatory and
+provides end-to-end security for authentication procedures, ensuring
+confidentiality and integrity of the transmitted data.
+Authentication for IoT may rely on a protocol as 6LowPAN (Low-power
+Wireless Personal Area Network) which is defined for optimizing the
+efficient routing of IPv6 packets for resource constrained machine-
+type communication applications.</t>
+
+<t>When compared to a fully certificate-based authentication, however, a
+hardware-based AAA mechanism relying e.g., on WiFi sensing gesture
+detection does not require the user to know any key, identifier, or
+password for the device to be authenticated.  A pre-defined type of access
+to the device (e.g., physical, photographic or video representation,
+unique description in terms of parameters, etc.) shall be sufficient for
+authentication.</t>
+
+<t><xref target="RFC8995"></xref> on ‘Bootstrapping Remote Secure Key Infrastructure’ (BRSKI) deals 
+with authentication of devices, including sending authorizations to the 
+device as to what network they should join, and how to authenticate that 
+network by specifying automated bootstrapping of an Autonomic Control Plane (ACP).
+Secure Key Infrastructure (SKI) bootstrapping using manufacturer-installed X.509
+certificates combined with a manufacturer's authorizing service, both online and
+offline, is called the Bootstrapping Remote Secure Key Infrastructure (BRSKI)
+protocol.  Bootstrapping a new device can occur when using a routable address 
+and a cloud service, only link-local connectivity, or limited/disconnected networks
+and includes support for deployment models with less stringent security requirements.
+When the cryptographic identity of the new SKI is successfully deployed to the
+device, completion of bootstrapping is achieved. A locally issued certificate can
+be deployed to the device via the established secure connection as well.</t>
+
+</section>
+</section>
+<section anchor="IANA" title="IANA Considerations">
+
+<t>TBD.</t>
+
+</section>
+<section anchor="Security" title="Security Considerations">
+
+<t>This document raises no new security concerns but tries to identify
+how to increase security in future IoT by discussing the issues of
+robust but easy to apply authentication mechanisms.</t>
+
+</section>
+<section anchor="acks" title="Acknowledgements">
+
+<t>TBD.</t>
+
+</section>
+
+
+  </middle>
+
+  <back>
+
+    <references title='Normative References'>
+
+
+
+
+
+<reference anchor='RFC2119' target='https://www.rfc-editor.org/info/rfc2119'>
+<front>
+<title>Key words for use in RFCs to Indicate Requirement Levels</title>
+<author fullname='S. Bradner' initials='S.' surname='Bradner'><organization/></author>
+<date month='March' year='1997'/>
+<abstract><t>In many standards track documents several words are used to signify the requirements in the specification.  These words are often capitalized. This document defines these words as they should be interpreted in IETF documents.  This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</t></abstract>
+</front>
+<seriesInfo name='BCP' value='14'/>
+<seriesInfo name='RFC' value='2119'/>
+<seriesInfo name='DOI' value='10.17487/RFC2119'/>
+</reference>
+
+
+
+<reference anchor='RFC8174' target='https://www.rfc-editor.org/info/rfc8174'>
+<front>
+<title>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title>
+<author fullname='B. Leiba' initials='B.' surname='Leiba'><organization/></author>
+<date month='May' year='2017'/>
+<abstract><t>RFC 2119 specifies common key words that may be used in protocol  specifications.  This document aims to reduce the ambiguity by clarifying that only UPPERCASE usage of the key words have the  defined special meanings.</t></abstract>
+</front>
+<seriesInfo name='BCP' value='14'/>
+<seriesInfo name='RFC' value='8174'/>
+<seriesInfo name='DOI' value='10.17487/RFC8174'/>
+</reference>
+
+
+
+
+    </references>
+
+    <references title='Informative References'>
+
+
+
+
+
+<reference anchor='RFC6749' target='https://www.rfc-editor.org/info/rfc6749'>
+<front>
+<title>The OAuth 2.0 Authorization Framework</title>
+<author fullname='D. Hardt' initials='D.' role='editor' surname='Hardt'><organization/></author>
+<date month='October' year='2012'/>
+<abstract><t>The OAuth 2.0 authorization framework enables a third-party application to obtain limited access to an HTTP service, either on behalf of a resource owner by orchestrating an approval interaction between the resource owner and the HTTP service, or by allowing the third-party application to obtain access on its own behalf.  This specification replaces and obsoletes the OAuth 1.0 protocol described in RFC 5849.  [STANDARDS-TRACK]</t></abstract>
+</front>
+<seriesInfo name='RFC' value='6749'/>
+<seriesInfo name='DOI' value='10.17487/RFC6749'/>
+</reference>
+
+
+
+<reference anchor='RFC8576' target='https://www.rfc-editor.org/info/rfc8576'>
+<front>
+<title>Internet of Things (IoT) Security: State of the Art and Challenges</title>
+<author fullname='O. Garcia-Morchon' initials='O.' surname='Garcia-Morchon'><organization/></author>
+<author fullname='S. Kumar' initials='S.' surname='Kumar'><organization/></author>
+<author fullname='M. Sethi' initials='M.' surname='Sethi'><organization/></author>
+<date month='April' year='2019'/>
+<abstract><t>The Internet of Things (IoT) concept refers to the usage of standard Internet protocols to allow for human-to-thing and thing-to-thing communication.  The security needs for IoT systems are well recognized, and many standardization steps to provide security have been taken -- for example, the specification of the Constrained Application Protocol (CoAP) secured with Datagram Transport Layer Security (DTLS).  However, security challenges still exist, not only because there are some use cases that lack a suitable solution, but also because many IoT devices and systems have been designed and deployed with very limited security capabilities.  In this document, we first discuss the various stages in the lifecycle of a thing. Next, we document the security threats to a thing and the challenges that one might face to protect against these threats.  Lastly, we discuss the next steps needed to facilitate the deployment of secure IoT systems.  This document can be used by implementers and authors of IoT specifications as a reference for details about security considerations while documenting their specific security challenges, threat models, and mitigations.</t><t>This document is a product of the IRTF Thing-to-Thing Research Group (T2TRG).</t></abstract>
+</front>
+<seriesInfo name='RFC' value='8576'/>
+<seriesInfo name='DOI' value='10.17487/RFC8576'/>
+</reference>
+
+
+
+<reference anchor='RFC8995' target='https://www.rfc-editor.org/info/rfc8995'>
+<front>
+<title>Bootstrapping Remote Secure Key Infrastructure (BRSKI)</title>
+<author fullname='M. Pritikin' initials='M.' surname='Pritikin'><organization/></author>
+<author fullname='M. Richardson' initials='M.' surname='Richardson'><organization/></author>
+<author fullname='T. Eckert' initials='T.' surname='Eckert'><organization/></author>
+<author fullname='M. Behringer' initials='M.' surname='Behringer'><organization/></author>
+<author fullname='K. Watsen' initials='K.' surname='Watsen'><organization/></author>
+<date month='May' year='2021'/>
+<abstract><t>This document specifies automated bootstrapping of an Autonomic Control Plane.  To do this, a Secure Key Infrastructure is bootstrapped.  This is done using manufacturer-installed X.509 certificates, in combination with a manufacturer's authorizing service, both online and offline.  We call this process the Bootstrapping Remote Secure Key Infrastructure (BRSKI) protocol. Bootstrapping a new device can occur when using a routable address and a cloud service, only link-local connectivity, or limited/disconnected networks. Support for deployment models with less stringent security requirements is included. Bootstrapping is complete when the cryptographic identity of the new key infrastructure is successfully deployed to the device.  The established secure connection can be used to deploy a locally issued certificate to the device as well.</t></abstract>
+</front>
+<seriesInfo name='RFC' value='8995'/>
+<seriesInfo name='DOI' value='10.17487/RFC8995'/>
+</reference>
+
+
+<reference anchor='I-D.irtf-t2trg-secure-bootstrapping-00'>
+   <front>
+      <title>Secure IoT Bootstrapping: A Survey</title>
+      <author fullname='Mohit Sethi' initials='M.' surname='Sethi'>
+         <organization>Ericsson</organization>
+      </author>
+      <author fullname='Behcet Sarikaya' initials='B.' surname='Sarikaya'>
+         <organization>Denpel Informatique</organization>
+      </author>
+      <author fullname='Dan Garcia-Carrillo' initials='D.' surname='Garcia-Carrillo'>
+         <organization>University of Oviedo</organization>
+      </author>
+      <date day='7' month='April' year='2021'/>
+      <abstract>
+	 <t>   This draft provides an overview of the various terms that are used
+   when discussing bootstrapping of IoT devices.  We document terms that
+   have been used within the IETF as well as other standards bodies.  We
+   investigate if the terms refer to the same phenomena or have subtle
+   differences.  We provide recommendations on the applicability of
+   terms in different contexts.  Finally, this document presents a
+   survey of secure bootstrapping mechanisms available for smart objects
+   that are part of an Internet of Things (IoT) network.  The survey
+   does not prescribe any one mechanism and rather presents IoT
+   developers with different options to choose from, depending on their
+   use-case, security requirements, and the user interface available on
+   their IoT devices.
+
+	 </t>
+      </abstract>
+   </front>
+   <seriesInfo name='Internet-Draft' value='draft-irtf-t2trg-secure-bootstrapping-00'/>
+   <format target='https://www.ietf.org/archive/id/draft-irtf-t2trg-secure-bootstrapping-00.txt' type='TXT'/>
+</reference>
+
+
+<reference anchor="BFUseCases" >
+  <front>
+    <title>Institute of Electrical and Electronics Engineers, IEEE P802.11 - TASK GROUP BF (WLAN SENSING) 11-20/1712r2  "WiFi Sensing Use Cases"</title>
+    <author >
+      <organization>IEEE</organization>
+    </author>
+    <date year="2021" month="January"/>
+  </front>
+</reference>
+<reference anchor="BFSFD" >
+  <front>
+    <title>Institute of Electrical and Electronics Engineers, IEEE P802.11 - TASK GROUP BF (WLAN SENSING) 11-21/0504r4   "Specification Framework for TGbf"</title>
+    <author >
+      <organization>IEEE</organization>
+    </author>
+    <date year="2021" month="November"/>
+  </front>
+</reference>
+<reference anchor="Rest21" >
+  <front>
+    <title>IEEE 802.11bf: Toward Ubiquitous Wi-Fi Sensing</title>
+    <author initials="F." surname="Restuccia">
+      <organization></organization>
+    </author>
+    <date year="2021" month="March"/>
+  </front>
+  <seriesInfo name="arXiv preprint arXiv:2103.14918" value="7 pages"/>
+</reference>
+<reference anchor="Henning" >
+  <front>
+    <title>Do We Still Need Wi-Fi in the Era of 5G (and 6G)?</title>
+    <author initials="H." surname="Schulzrinne">
+      <organization>IEEE Future Networks Webinar</organization>
+    </author>
+    <date year="2021" month="February"/>
+  </front>
+</reference>
+<reference anchor="Henning2" >
+  <front>
+    <title>How do we program the Internet of Things at scale?</title>
+    <author initials="." surname="Jan Janak, Luoyao Hao and Henning Schulzrinne">
+      <organization>RIOT Key Note Presentation</organization>
+    </author>
+    <date year="2021" month="September"/>
+  </front>
+</reference>
+<reference anchor="IEEE802.1X" >
+  <front>
+    <title>Institute of Electrical and Electronics Engineers,    "802.1X - Port Based Network Access Control"</title>
+    <author >
+      <organization>IEEE</organization>
+    </author>
+    <date year="2020" month="January"/>
+  </front>
+</reference>
+<reference anchor="Ma" >
+  <front>
+    <title>Location-and Person-Independent Activity Recognition with WiFi, Deep Neural Networks,  and Reinforcement Learning,</title>
+    <author initials="Y." surname="Ma">
+      <organization></organization>
+    </author>
+    <author initials="S." surname="Arshad, et al">
+      <organization></organization>
+    </author>
+    <author surname="ACM Transactions on Internet of Things">
+      <organization></organization>
+    </author>
+    <author surname="vol. 2">
+      <organization></organization>
+    </author>
+    <author surname="no. 1">
+      <organization></organization>
+    </author>
+    <author surname="pp. 1-25">
+      <organization></organization>
+    </author>
+    <date year="2021"/>
+  </front>
+</reference>
+<reference anchor="Wang" >
+  <front>
+    <title>TensorBeat: Tensor Decomposition for Monitoring Multiperson Breathing Beats with Commodity WiFi,</title>
+    <author initials="X." surname="Wang">
+      <organization></organization>
+    </author>
+    <author initials="C." surname="Yang, et al">
+      <organization></organization>
+    </author>
+    <date year="2017"/>
+  </front>
+  <seriesInfo name="ACM Transactions on Intelligent Systems and Technology (TIST)," value=""/>
+  <seriesInfo name="vol." value="9"/>
+  <seriesInfo name="no." value="1"/>
+  <seriesInfo name="pp." value="1-27"/>
+</reference>
+<reference anchor="Zhu" >
+  <front>
+    <title>R-TTWD: Robust device-free through-the-wall detection of moving human with WiFi,</title>
+    <author initials="H." surname="Zhu">
+      <organization></organization>
+    </author>
+    <author initials="F." surname="Xiao, et al">
+      <organization></organization>
+    </author>
+    <date year="2017"/>
+  </front>
+  <seriesInfo name="IEEE Journal on Selected Areas in Communications," value=""/>
+  <seriesInfo name="vol." value="35"/>
+  <seriesInfo name="no." value="5"/>
+  <seriesInfo name="pp." value="1090-1103"/>
+</reference>
+<reference anchor="Wang2" >
+  <front>
+    <title>PhaseBeat: Exploiting CSI Phase Data for Vital Sign Monitoring with Commodity  WiFi Devices,</title>
+    <author initials="X." surname="Wang">
+      <organization></organization>
+    </author>
+    <author initials="C." surname="Yang, et al">
+      <organization></organization>
+    </author>
+    <date year="2017"/>
+  </front>
+  <seriesInfo name="Proc. of IEEE ICDCS," value=""/>
+</reference>
+<reference anchor="Qian" >
+  <front>
+    <title>Widar: Decimeter-level Passive Tracking via Velocity Monitoring with Commodity WiFi,</title>
+    <author initials="K." surname="Xian">
+      <organization></organization>
+    </author>
+    <author initials="C." surname="Wu, et al">
+      <organization></organization>
+    </author>
+    <date year="2017"/>
+  </front>
+  <seriesInfo name="Proc. of ACM MobiCom," value=""/>
+</reference>
+<reference anchor="Restuccia" >
+  <front>
+    <title>Deep Learning at the Physical Layer: System Challenges and Applications to 5G  and Beyond,</title>
+    <author initials="F." surname="Restuccia">
+      <organization></organization>
+    </author>
+    <author initials="T." surname="Melodia">
+      <organization></organization>
+    </author>
+    <date year="2020"/>
+  </front>
+  <seriesInfo name="IEEE Communications Magazine," value=""/>
+  <seriesInfo name="vol." value="58"/>
+  <seriesInfo name="no." value="10"/>
+  <seriesInfo name="pp." value="58-64"/>
+</reference>
+<reference anchor="Ma2" >
+  <front>
+    <title>WiFi Sensing with Channel State Information: A Survey,</title>
+    <author initials="Y." surname="Ma">
+      <organization></organization>
+    </author>
+    <author initials="G." surname="Zhou, et al">
+      <organization></organization>
+    </author>
+    <date year="2019"/>
+  </front>
+  <seriesInfo name="ACM Computing Surveys (CSUR)," value=""/>
+  <seriesInfo name="vol." value="52"/>
+  <seriesInfo name="no." value="3"/>
+  <seriesInfo name="pp." value="1-36"/>
+</reference>
+<reference anchor="IEEE802.11" target="https://standards.ieee.org/findstds/standard/802.11-2016.html">
+  <front>
+    <title>IEEE Std. 802.11-2016</title>
+    <author >
+      <organization>IEEE</organization>
+    </author>
+    <date year="2016" month="December"/>
+  </front>
+</reference>
+<reference anchor="Al-Qaness" >
+  <front>
+    <title>Channel State Information (CSI) from Pure Communication to Sense and Track Human Motion: A Survey</title>
+    <author initials="M.A.A." surname="Al-Qaness" fullname=" Mohammed A.A. Al-Qaness">
+      <organization></organization>
+    </author>
+    <author initials="M." surname="Abd Elaziz" fullname="Mohamed Abd Elaziz">
+      <organization></organization>
+    </author>
+    <author initials="S." surname="Kim" fullname="Sunghwan Kim">
+      <organization></organization>
+    </author>
+    <author initials="A.A." surname="Ewees" fullname="Ahmed A. Ewees">
+      <organization></organization>
+    </author>
+    <author initials="A.A." surname="Abbasi" fullname="Aaqif A. Abbasi">
+      <organization></organization>
+    </author>
+    <author initials="Y.A." surname="Alhaj" fullname="Yousif A. Alhaj">
+      <organization></organization>
+    </author>
+    <author initials="A." surname="Hawbani" fullname="Ammar Hawbani">
+      <organization></organization>
+    </author>
+    <date year="2019" month="July"/>
+  </front>
+  <seriesInfo name="Sensors 2019, 19(15), 3329" value=""/>
+</reference>
+<reference anchor="Axente" >
+  <front>
+    <title>Gait Recognition as an Authentication Method for Mobile Devices</title>
+    <author initials="M.-S." surname="Axente" fullname="Matei-Sorin Axente">
+      <organization></organization>
+    </author>
+    <author initials="C." surname="Dobre" fullname="Ciprian Dobre">
+      <organization></organization>
+    </author>
+    <author initials="R.-I." surname="Ciobanu" fullname="Radu-Ioan Ciobanu">
+      <organization></organization>
+    </author>
+    <author initials="R." surname="Purnichescu-Purtan" fullname="Raluca Purnichescu-Purtan">
+      <organization></organization>
+    </author>
+    <date year="2020" month="July"/>
+  </front>
+  <seriesInfo name="Sensors 2020, 20, 4110" value=""/>
+</reference>
+<reference anchor="Bai" >
+  <front>
+    <title>Physical Layer Authentication in Wireless Communication Networks: A Survey</title>
+    <author initials="L." surname="Bai" fullname="Lin Bai">
+      <organization></organization>
+    </author>
+    <author initials="L." surname="Zhu" fullname="Lina Zhu">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Liu" fullname="Jianwei Liu">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Choi" fullname="Jinho Choi">
+      <organization></organization>
+    </author>
+    <author initials="W." surname="Zhang" fullname="Wei Zhang">
+      <organization></organization>
+    </author>
+    <date year="2020" month="September"/>
+  </front>
+  <seriesInfo name="Journal of Communications and Information Networks" value="Vol.5, No.3"/>
+</reference>
+<reference anchor="FURQAN" >
+  <front>
+    <title>Wireless Communication, Sensing, and REM: A Security Perspective</title>
+    <author initials="H.M." surname="Furqan" fullname="Haji M. Furqan">
+      <organization></organization>
+    </author>
+    <author initials="M.S.J." surname="Solaija" fullname="Muhammad Sohaib J. Solaija">
+      <organization></organization>
+    </author>
+    <author initials="H." surname="Tuerkmen" fullname="Halise Tuerkmen">
+      <organization></organization>
+    </author>
+    <author initials="H." surname="Arslan" fullname="Hueseyin Arslan">
+      <organization></organization>
+    </author>
+    <date year="2021" month="January"/>
+  </front>
+  <seriesInfo name="IEEE Open Journal of the Communications Society Vol. 2" value=""/>
+</reference>
+<reference anchor="Guo" >
+  <front>
+    <title>HuAc: Human Activity Recognition Using Crowdsourced WiFi Signals and Skeleton Data</title>
+    <author initials="L." surname="Guo" fullname="Linlin Guo">
+      <organization></organization>
+    </author>
+    <author initials="L." surname="Wang" fullname="Lei Wang">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Liu" fullname="Jialin Liu">
+      <organization></organization>
+    </author>
+    <author initials="W." surname="Zhou" fullname="Wei Zhou">
+      <organization></organization>
+    </author>
+    <author initials="B." surname="Lu" fullname="Bingxian Lu">
+      <organization></organization>
+    </author>
+    <date year="2021" month="February"/>
+  </front>
+  <seriesInfo name="Hindawi Wireless Communications and Mobile Computing, Volume 2018" value=""/>
+</reference>
+<reference anchor="Inayat" >
+  <front>
+    <title>Internet of Things Security, Device Authentication and Access Control: A Review</title>
+    <author initials="I." surname="Ali" fullname="Inayat Ali">
+      <organization></organization>
+    </author>
+    <author initials="S." surname="Sabir" fullname="Sonia Sabir">
+      <organization></organization>
+    </author>
+    <author initials="Z." surname="Ullah" fullname="Zahid Ullah">
+      <organization></organization>
+    </author>
+    <date year="2016" month="August"/>
+  </front>
+  <seriesInfo name="International Journal of Computer Science and Information Security (IJCSIS), Vol. 14, No. 8" value=""/>
+</reference>
+<reference anchor="Liao" >
+  <front>
+    <title>Deep-learning-based physical layer authentication for industrial wireless sensor networks</title>
+    <author initials="R.-F." surname="Liao" fullname="Run-Fa Liao">
+      <organization></organization>
+    </author>
+    <author initials="H." surname="Wen" fullname="Hong Wen">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Wu" fullname="Jinsong Wu">
+      <organization></organization>
+    </author>
+    <author initials="F." surname="Pan" fullname="Fei Pan">
+      <organization></organization>
+    </author>
+    <author initials="A." surname="Xu" fullname="Aidong Xu">
+      <organization></organization>
+    </author>
+    <author initials="Y." surname="Jiang" fullname="Yixin Jiang">
+      <organization></organization>
+    </author>
+    <author initials="F." surname="Xie" fullname="Feiyi Xie">
+      <organization></organization>
+    </author>
+    <author initials="M." surname="Cao" fullname="Minggui Cao">
+      <organization></organization>
+    </author>
+    <date year="2019" month="May"/>
+  </front>
+  <seriesInfo name="Sensors 2019, 19(11), 2440" value=""/>
+</reference>
+<reference anchor="Liao2" >
+  <front>
+    <title>Multiuser Physical Layer Authentication in Internet of Things With Data Augmentation</title>
+    <author initials="R.-F." surname="Liao" fullname="Run-Fa Liao">
+      <organization></organization>
+    </author>
+    <author initials="H." surname="Wen" fullname="Hong Wen">
+      <organization></organization>
+    </author>
+    <author initials="H." surname="Wen" fullname="Songlin Chen">
+      <organization></organization>
+    </author>
+    <author initials="F." surname="Xie" fullname="Feiyi Xie">
+      <organization></organization>
+    </author>
+    <author initials="F." surname="Pan" fullname="Fei Pan">
+      <organization></organization>
+    </author>
+    <author initials="F." surname="Pan" fullname="Jie Tang">
+      <organization></organization>
+    </author>
+    <author initials="F." surname="Xie" fullname="Huanhuan Song">
+      <organization></organization>
+    </author>
+    <date year="2020" month="March"/>
+  </front>
+  <seriesInfo name="IEEE Internet of Things Journal, vol. 7, no. 3, pp. 2077-2088" value=""/>
+</reference>
+<reference anchor="Lui" >
+  <front>
+    <title>Multi-Target Intense Human Motion Analysis and Detection Using Channel State Information</title>
+    <author initials="J." surname="Liu" fullname="Jialin Liu">
+      <organization></organization>
+    </author>
+    <author initials="L." surname="Wang" fullname=" Lei Wang">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Fang" fullname="Jian Fang">
+      <organization></organization>
+    </author>
+    <author initials="L." surname="Guo" fullname="Linlin Guo">
+      <organization></organization>
+    </author>
+    <author initials="B." surname="Lu" fullname="Bingxian Lu">
+      <organization></organization>
+    </author>
+    <author initials="L." surname="Shu" fullname="Lei Shu">
+      <organization></organization>
+    </author>
+    <date year="2018" month="October"/>
+  </front>
+  <seriesInfo name="Sensors 2018, 18(10), 3379" value=""/>
+</reference>
+<reference anchor="Pahlavan" >
+  <front>
+    <title>Evolution and Impact of Wi Fi Technology and Applications: A Historical Perspective</title>
+    <author initials="K." surname="Pahlavan" fullname="Kaveh Pahlavan">
+      <organization></organization>
+    </author>
+    <author initials="P." surname="Krishnamurthy" fullname="Prashant Krishnamurthy">
+      <organization></organization>
+    </author>
+    <date year="2020" month="November"/>
+  </front>
+  <seriesInfo name="Springer Science+Business Media, LLC, part of Springer Nature 2020" value=""/>
+</reference>
+<reference anchor="Tian" >
+  <front>
+    <title>An Identity Authentication Method of a MIoT Device Based on Radio Frequency (RF) Fingerprint Technology</title>
+    <author initials="Q." surname="Tian" fullname="Qiao Tian">
+      <organization></organization>
+    </author>
+    <author initials="Y." surname="Lin" fullname="Yun Lin">
+      <organization></organization>
+    </author>
+    <author initials="X." surname="Guo" fullname="Xinghao Guo">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Wang" fullname="Jin Wang">
+      <organization></organization>
+    </author>
+    <author initials="O." surname="AlFarraj" fullname="Osama AlFarraj">
+      <organization></organization>
+    </author>
+    <author initials="A." surname="Tolba" fullname="Amr Tolba">
+      <organization></organization>
+    </author>
+    <date year="2020" month="February"/>
+  </front>
+  <seriesInfo name="Sensors 2020, 20(4), 1213" value=""/>
+</reference>
+<reference anchor="Wang3" >
+  <front>
+    <title>Sensor-Based User Authentication</title>
+    <author initials="H." surname="Wang" fullname="He Wang">
+      <organization></organization>
+    </author>
+    <author initials="D." surname="Lymberopoulos" fullname="Dimitrios Lymberopoulos">
+      <organization></organization>
+    </author>
+    <author initials="J." surname="Liu" fullname="Jie Liu">
+      <organization></organization>
+    </author>
+    <date year="2015"/>
+  </front>
+  <seriesInfo name="EWSN 2015, LNCS 8965, 168" value=""/>
+</reference>
+
+
+    </references>
+
+
+
+
+  </back>
+
+
+</rfc>
+

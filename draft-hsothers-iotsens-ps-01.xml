@@ -93,7 +93,16 @@ There are also health care related use cases like breathing/heart rate
 detection, surveillance of persons of interest, building a 3D picture
 of an environment, as, e.g., in-car sensing for driver sleepiness detection
 <xref target="BFUseCases"/>.</t>
-
+	
+<t>At the same time also 3GPP is discussing whether to set up new studies on radio 
+sensing in terms of Integrated, Harmonized or Cooperative Sensing and Communication starting
+with identification of use cases and requirements for toward the 5G system to support 
+future services and communication making use of sensing capabilities.
+Similar use cases are in focus here and questions on discovery of service and entities as well 
+as authorization, activation, and and control, however, the proposals mentioned in <xref target="3GPPSA1"/> will not yet be part of upcoming
+3GPP Release 18 <xref target="3GPP_Rel18"/>.
+</t>
+	
 <t>Hardware based authentication that we address in this document builds
 on similar use cases.
 We can summarize the use cases we are currently considering here:
@@ -504,6 +513,29 @@ robust but easy to apply authentication mechanisms.</t>
     <date year="2021" month="November"/>
   </front>
 </reference>
+
+<reference anchor="3GPPSA1" >
+  <front>
+    <title>draft report of 3GPP SA1 meeting 96e</title>
+    <author >
+      <organization>3GPP</organization>
+    </author>
+    <date year="2021" month="December"/>
+  </front>
+<format target='https://www.3gpp.org/ftp/tsg_sa/WG1_Serv/TSGS1_96e_EM_Nov2021/' type='doc'/>
+</reference>
+
+<reference anchor="3GPP_Rel18" >
+  <front>
+    <title>3GPP List of Work Items</title>
+    <author >
+      <organization>3GPP</organization>
+    </author>
+    <date year="2021" month="December"/>
+  </front>
+<format target='https://www.3gpp.org/DynaReport/WI-List.htm' type='HTM'/>
+</reference>
+	    
 <reference anchor="Rest21" >
   <front>
     <title>IEEE 802.11bf: Toward Ubiquitous Wi-Fi Sensing</title>

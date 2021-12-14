@@ -152,7 +152,11 @@ relatively large motions and that can propagate through obstacles
 measurements at mmWave that provide highly-directional information
 through the usage of beamforming toward a given receiver, but have
 small range due to the presence of blockers (e.g., walls).</t>
-
+	
+<t>According to <xref target="802.11ovrw"/> sensing at sub-7-GHz channels
+mainly allows for low-resolution sensing as presence detection while only
+60-GHz measurements thanks to the higher bandwidth provide high-resolution 
+gesture detection allowing for secure authentication as is in focus of this draft.</t>
 </section>
 </section>
 <section anchor="hardware-based-authentication" title="Hardware Based Authentication">
@@ -513,6 +517,14 @@ robust but easy to apply authentication mechanisms.</t>
     <date year="2021" month="March"/>
   </front>
   <seriesInfo name="arXiv preprint arXiv:2103.14918" value="7 pages"/>
+</reference>
+<reference anchor="802.11ovrw"/>
+ <front>
+    <title>IEEE 802.11 Overview and Amendments under development</title>
+    
+    <date year="2021" month="July"/>
+  </front>
+     <format target='https://www.ieee802.org/11/IEEE%20802-11-Overview-and-Amendments-Under-Development.pptx' type='pptx'/>   
 </reference>
 <reference anchor="Henning" >
   <front>

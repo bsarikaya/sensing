@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-hsothers-iotsens-ps-00.txt
+docname: draft-hsothers-iotsens-ps-01.txt
 cat: std
 pi:
   toc: 'yes'
@@ -14,8 +14,8 @@ pi:
   inline: 'yes'
   compact: 'yes'
   subcompact: 'no'
-title: Problem Statement for  Internet of Things Sensing
-abbrev: IoT Sensing Problem Statement
+title: The Need for New Authentication Methods for Internet of Things
+abbrev: Introduce The Need for IoT Authentication
 date: 2021
 author:
 - ins: D. H. von Hugo
@@ -490,15 +490,10 @@ informative:
 --- abstract
 
 
-The document attempts to establish hardware based Internet of Things authentication
+The document attempts to establish the need for new authentication methods in the Internet of Things (IoT)
 as a future
 networking area beyond
-5G going into 6G for standardization. The problem of hardware authentication
-is discussed and
-its relationship with Wireless Local Area network collaborative and/or multi-band
-sensing is established
-and then recent
-research efforts in the area are indicated.
+5G going into 6G for standardization. Several scenarios are described where the current authentication protocols do not work or are insufficient. Next we discuss a few new approaches such as Wireless LAN/6G sensing and LED light based which can be further explored.
 
 --- middle
 
@@ -507,18 +502,24 @@ research efforts in the area are indicated.
 Future networking to make full use of 5G capabilities or even
 resembling an evolution to beyond 5G will have to exploit a much
 more heterogeneous environment in terms of network and device
-connectivity technologies and applications.  In addition ease of use
+connectivity technologies and applications.  In addition, ease of use
 for customers and human-independent operation of a multitude of
 devices and machines (things) has to be provided.
 
 Therefore current authentication models like 802.1X {{IEEE802.1X}} which
 are based on human intervention do not fit well.  Also this model
 does not scale well for the Internet of
-Things (IoT).  What we need is hardware based admission model.  Such
-a model will enable many new applications as we explain more in this
-document.
+Things (IoT).  
 
 
+We can summarize the use cases we are currently considering here:
+Authenticating the device that is playing a melody, or a person has
+just touched; authenticating devices, i.e. smart teapot with certain
+manifests, like blinking red and blue; authenticate the device when a
+camera is pointed at it; and the like {{Henning}}.
+
+
+In looking for possible approaches for new authention methods, we have identified a few which will be shortly introduced in this document.
 
 IEEE 802.11 has a project on Wireless LAN (WLAN sensing) and 802.11bf
 task group (TG) in charge of this project {{BFSFD}}.
@@ -531,17 +532,7 @@ detection, surveillance of persons of interest, building a 3D picture
 of an environment, in car sensing for driver sleepiness detection
 {{BFUseCases}}.
 
-Hardware based authentication that we address in this document builds
-on similar use cases.
-We can summarize the use cases we are currently considering here:
-Authenticating the device that is playing a melody, or a person has
-just touched; authenticating devices, i.e. smart teapot with certain
-manifests, like blinking red and blue; authenticate the device when a
-camera is pointed at it; and the like {{Henning}}.
-802.11bf sensing project provides proper framework for hardware based
-authentication because 802.11 or Wi-Fi devices are more and more
-diverse spanning from personal computers, smartphones, televisions,
-tablets and all sorts of IoT devices or sensors.
+
 
 TGbf is also working on Specification Framework Document with an
 outline of each the functional blocks that will be a part of the final
@@ -563,6 +554,7 @@ CSENS) where multiple SENS-enabled devices can collaborate as a group
 in an orderly fashion to capture additional information about the
 surrounding environment {{Rest21}}.
 
+LED light based authentication attempts to authenticate hard to reach IoT devices using LED light indicator available on the device.
 # Conventions and Terminology
 
 {::boilerplate bcp14-tagged}

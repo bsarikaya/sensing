@@ -579,7 +579,7 @@ measurements at mmWave that provide highly-directional information
 through the usage of beamforming toward a given receiver, but have
 small range due to the presence of blockers (e.g., walls).
 
-# Hardware Based Authentication
+# Need for New Authentication Models
 
 Aim of this document is to lay ground for the need for new
 authentication models in the framework of devices (e.g., machines in
@@ -594,7 +594,7 @@ PIN (Personal Identification Number).
 With the use case of massive IoT (mIoT) as foreseen, e.g., in 5G and
 with an increasing amount of devices within a household (smart home)
 and/or in the ownership of a customer (smart watch etc.)
-the need for an ease-of-use hardware-based admission model arises.
+the need for an ease-of-use  admission model arises.
 
 Focusing on corresponding procedures starting with detection (sensing)
 of a new device and subsequent mutual authenticating of the device by
@@ -602,7 +602,7 @@ and to the network a set of potential technologies are identified and
 described to allow for analysis in terms of criteria as reliable
 operation (working), scalability, ease of use and convenience,
 security, and many more.
-Sensing is critical to Hardware Based Authentication because sensing 
+Sensing could be a basis for new  authentication models yet to be found because sensing 
 (together with intelligent interpretation using possibly neural network models) will allow the detection of the device playing a melody, blinking red and blue,
  being pointed at, or somebody just touched and the like.
 Furthermore, the method should be applicable to future generations of
@@ -610,7 +610,7 @@ network and of users, upcoming new applications and devices, assuming
 that todays established standard procedures do not fulfill the
 requirements sufficiently.
 
-Hardware based authentication should leverage collaborative and
+New authentication methods could leverage collaborative and
 multi-band sensing technologies to enable sensing with much higher
 precision and capacity using the state-of-art equipment. Also equally
 important is the use of all artificial intelligence and neural
@@ -693,11 +693,11 @@ while such token resembles a different set of credentials than those
 of the resource owner.
 [to be continued]
 
-# Hardware IoT Authentication Problem {#nextgen}
+#  IoT Authentication Problem {#nextgen}
 
-Most of the state-of-art hardware identification techniques to
+Most of the state-of-art  identification techniques to
 authenticate the user use finger prints a.k.a. touch id and facial
-identification and they use detection by hardware i.e. touch,
+identification and they use detection by  touch,
 accelerometer, and gyro sensors or cameras.
 They are based on creating a signature, or the user's already stored
 password {{Wang3}}.
@@ -723,12 +723,10 @@ networks and subsequent exposure to attack to sensitive user data.
 
 ## Architectural and Procedural Issues for Future IP-based IoT-Authentication {#IPwork}
 
-Here we will discuss possible solutions on IP level and identify
+Here we will discuss possible solutions on IP level IoT authentication and identify
 benefits and potential gaps towards the requirements of next
 generation IoT systems.
-On IP or network layer for IPv6 IPsec protocol suite is mandatory and
-provides end-to-end security for authentication procedures, ensuring
-confidentiality and integrity of the transmitted data.
+
 Authentication for IoT may rely on a protocol as 6LowPAN (Low-power
 Wireless Personal Area Network) which is deﬁned for optimizing the
 efficient routing of IPv6 packets for resource constrained machine-
@@ -740,6 +738,7 @@ password for the device to be authenticated.  A pre-defined type of access
 to the device (e.g., physical, photographic or video representation,
 unique description in terms of parameters, etc.) shall be sufficient for
 authentication.
+
 {{RFC8995}} on ‘Bootstrapping Remote Secure Key Infrastructure’ (BRSKI)
 deals with authentication of devices, including sending authorizations to
 the device as to what network they should join, and how to authenticate
@@ -756,6 +755,7 @@ the cryptographic identity of the new SKI is successfully deployed to the
 device, completion of bootstrapping is achieved.  A locally issued
 certificate can be deployed to the device via the established secure
 connection as well.
+
 
 # IANA Considerations  {#IANA}
 

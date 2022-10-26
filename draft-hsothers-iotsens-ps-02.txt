@@ -1,0 +1,616 @@
+
+
+
+
+Network Working Group                                        D. von Hugo
+Internet-Draft                                          Deutsche Telekom
+Intended status: Standards Track                             B. Sarikaya
+Expires: 12 January 2023                                    11 July 2022
+
+
+     The Need for New Authentication Methods for Internet of Things
+                    draft-hsothers-iotsens-ps-02.txt
+
+Abstract
+
+   The document attempts to establish the need for new authentication
+   methods in the Internet of Things (IoT) as a future networking area
+   beyond 5G going into 6G for standardization.  Several scenarios are
+   described where the current authentication protocols do not work or
+   are insufficient.  Wireless LAN/6G sensing is established as an
+   admission method that can be used within the framework of Device
+   Provisioning Protocol and LED light and others as out-of band channel
+   based authentication which can be further explored.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 12 January 2023.
+
+Copyright Notice
+
+   Copyright (c) 2022 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+
+
+
+
+
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 1]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Simplified BSD License text
+   as described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Simplified BSD License.
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Conventions and Terminology . . . . . . . . . . . . . . . . .   4
+   3.  Sensing in Device Provisioning Protocol . . . . . . . . . . .   5
+   4.  IoT Authentication Protocols  . . . . . . . . . . . . . . . .   6
+     4.1.  Autonomic Control Plane and Out-of Band Channel Usage in
+           IoT Authentication  . . . . . . . . . . . . . . . . . . .   6
+   5.  The Need for New Authentication Models  . . . . . . . . . . .   8
+     5.1.  IoT Applications Commonly Used  . . . . . . . . . . . . .   8
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   9
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .   9
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .   9
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  11
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
+
+1.  Introduction
+
+   Future networking to make full use of 5G capabilities or even
+   resembling an evolution to beyond 5G will have to exploit a much more
+   heterogeneous environment in terms of network and device connectivity
+   technologies and applications.  In addition, ease of use for
+   customers and human-independent operation of a multitude of devices
+   and machines (things) has to be provided.
+
+   Therefore current authentication models like 802.1X [IEEE802.1X]
+   which are based on human intervention do not fit well.  Also this
+   model does not scale well for the Internet of Things (IoT).
+
+   Device Provisioning Protocol (DPP) developed by Wi-Fi Alliance makes
+   it possible that IoT devices with Wi-Fi interface can be bootstrapped
+   and authenticated using another device such as a mobile phone [dpp].
+   DPP uses different out-of band channels to get authentication
+   information from the device such as Bluetooth, Near-Field
+   Communications (NFC), QR code, etc.
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 2]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+   The idea of using a mobile phone for IoT authentication also opens up
+   the possibility of better methods of admission and makes it possible
+   to realize the use cases such as: Authenticating the device that is
+   playing a melody, or a person has just touched; authenticating
+   devices, i.e. smart teapot with certain manifests, like blinking red
+   and blue; authenticate the device when a camera is pointed at it; and
+   the like [Henning].  Advances in signal processing may make it
+   possible to realize these and similar use cases.  Here, we will
+   mention Wi-Fi sensing activity that is being taken up by IEEE 802.11.
+
+   Detection and interpretation of audio signals by microphones and
+   corresponding
+   software has been under investigation since some time and
+   can be achieved with high precision nowadays.  Coding of haptic
+   information is currently under standardisation at IEEE P.1918
+   [P1918].
+   Using an objects' position to grant authentication could be achieved
+   via geometrical information
+   (as e.g., position and orientation of a trusted device like the
+   camera) or via radio sensing.
+
+   IEEE 802.11 has a project on Wireless LAN (WLAN sensing) and 802.11bf
+   task group (TG) in charge of this project [BFSFD].  Use cases for
+   802.11bf TG includes room sensing, i.e., presence detection, counting
+   the number of people in the room, localization of active people,
+   audio with user detection, gesture recognition at different ranges,
+   device proximity detection, home appliance control.  There are also
+   health care related use cases like breathing/heart rate detection,
+   surveillance of persons of interest, building a 3D picture of an
+   environment, in car sensing for driver sleepiness detection
+   [BFUseCases].
+
+   TGbf is also working on Specification Framework Document with an
+   outline of each the functional blocks that will be a part of the
+   final amendment like wireless LAN sensing procedure [BFSFD].  TGbf
+   sensing is based on obtaining physical Channel State Information
+   (CSI) measurements between a transmitter and receiver WLAN nodes,
+   called stations (STA).  Using these measurements, presence of
+   obstacles between a transmitter and receiver can be detected and
+   tracked.  This way, using feature extraction and classification of
+   artificial intelligence (AI), more higher level tasks like human
+   activity recognition and object detection are available for
+   authentication purposes, while corresponding authentication context
+   information can be obtained through computation of phase differences,
+   etc.
+
+
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 3]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+   TGbf Wi-Fi Sensing (SENS) is achieved by signaling between just an
+   initiator and a responder.  TGbf may also define more effective
+   collaborative SENS (in short, CSENS) where multiple SENS-enabled
+   devices can collaborate as a group in an orderly fashion to capture
+   additional information about the surrounding environment [Rest21].
+
+   While Wi-Fi sensing may lead to higher levels of admission methods
+   for IoT devices there is a need to communicate with the device for
+   authentication.  Just like in Device Provisioning Protocol, there is
+   a need to use out-of band channels to provide two independent
+   channels to allow for secure Two-Factor Authentication (TFA/2FA).
+   These issues will be exploited further in the following sections.
+
+2.  Conventions and Terminology
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   Sensing (SENS) is defined as the usage of received Wi-Fi signals from
+   a Station (STA) to detect features (i.e., range, velocity, angular,
+   motion, presence or proximity, gesture, etc.) of intended targets
+   (i.e., object, human, animal, etc.) in a given environment (i.e.,
+   house, office, room, vehicle, enterprise, etc.).
+
+   Collaborative sensing (CSENS) defines the operation in which multiple
+   SENS enabled devices can collaborate as a group in an orderly fashion
+   to capture additional information about the surrounding environment
+   and allow for more precise detection thus enabling a more reliable
+   authentication.
+
+   Multi-band sensing is defined as sensing using both sub-7-GHz Channel
+   State Information (CSI) measurements that provide indication of
+   relatively large motions and that can propagate through obstacles
+   (e.g., walls) and 60-GHz Received Signal Strength Indicator (RSSI)
+   measurements at mmWave that provide highly-directional information
+   through the usage of beam forming toward a given receiver, but have
+   small range due to the presence of blockers (e.g., walls).
+
+
+
+
+
+
+
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 4]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+3.  Sensing in Device Provisioning Protocol
+
+   Aim of this document is to lay ground for the need for new
+   authentication models in the framework of devices (e.g., machines in
+   IoT communication) within a (wireless or wireline-based) network.
+   Currently employed authentication models (such as e.g., 802.1X
+   certificate model) is based on a human being using the machine and
+   providing credentials (e.g., user name/password or a permitted
+   digital certificate) to the authenticator.  Similarly, for user
+   equipment (UE) to access a cellular network the device has to be
+   equipped with a USIM and the user has to provide a secret key, i.e.,
+   PIN (Personal Identification Number).  With the use case of massive
+   IoT (mIoT) as foreseen, e.g., in 5G and with an increasing amount of
+   devices within a household (smart home) and/or in the ownership of a
+   customer (smart watch etc.) the need for an ease-of-use admission
+   model arises.
+
+   Focusing on corresponding procedures starting with detection
+   (sensing) of a new device to admit it in the local network and
+   subsequent mutual authentication of the device by and to the network,
+   a set of potential technologies are identified and described to allow
+   for analysis in terms of criteria as reliable operation (working),
+   scalability, ease of use and convenience, security, and many more.
+
+   Most of the state-of-art identification/admission techniques to
+   authenticate the user use finger prints a.k.a. touch id and facial
+   identification and they use detection by touch, accelerometer, and
+   gyro sensors or cameras.  They are based on creating a signature, or
+   the user's already stored password [Wang3].  Sensing
+   (together with intelligent interpretation using possibly neural
+   network models) will allow the detection of the device playing a
+   melody, blinking red and blue, being pointed at, or somebody just
+   touched and the like.
+
+   Sensing provides a natural extension to the Device Provisioning
+   Protocol as a new technique for admission of an IoT device to the
+   local network.  So since it is able to cover a wide range of use
+   cases possibly applicable to future generations of network and of
+   users, upcoming new applications and devices, sensing presents itself
+   as the preferable admission protocol.
+
+
+
+
+
+
+
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 5]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+4.  IoT Authentication Protocols
+
+   Since IoT applications cover a broad range of domains from smart
+   cities, industry, and homes to personal (e.g., wearable) devices,
+   including security and privacy sensitive areas as e-health, and can
+   reach a huge number of entities the security requirements in terms of
+   preventing unauthorized access to data are very high.  Therefore very
+   robust authentication mechanisms have to be applied.  At the same
+   time depending on the specific scenario a trade-off between resources
+   as processing power and memory and security protocol complexity has
+   to be considered.  Also a plethora of attack scenarios has to be in
+   focus as well as scalability of the considered implicit and explicit
+   hardware- and software-based authentication procedures.  [RFC8576]
+   serves as a reference for details about IoT specific security
+   considerations including the area of authentication and documents
+   their specific security challenges, threat models, and possible
+   mitigations.  Also the OAuth [RFC6749] protocol is referred to which
+   extends traditional client-server authentication by providing a third
+   party client with a token instead of allowing it to use the resource
+   owner's credentials to access protected resources while such token
+   resembles a different set of credentials than those of the resource
+   owner.
+
+   On the other hand to authenticate a device based on a set of
+   characteristic parameters which should be flexibly chosen by the
+   owner and subsequently made known to the authentication system will
+   require a certain level of processing and storage capacity either
+   within the local system components (e.g., the device itself and the
+   wireless point of attachment or access point) and/or within the
+   network (e.g., an edge cloud instance or a central data base).  The
+   result of the detection process (e.g., radio wave analysis outcome in
+   terms of parameters as modulation scheme, number of carriers, and
+   fingerprinting) has to be compared with the required (correct)
+   parameter values which are safely stored within the network
+   components.  On all levels of handling these data, i.e., storage,
+   processing, and transport via a communication network, the integrity
+   of the content has to be preserved.  One should keep in mind, that
+   any unintended authentication request should be prevented to minimize
+   the risk of occasional attachment to networks and subsequent exposure
+   to attack to sensitive user data.
+
+4.1.  Autonomic Control Plane and Out-of Band Channel Usage in IoT
+      Authentication
+
+   Authentication for IoT may rely on a protocol such as 6LowPAN (Low-
+   power Wireless Personal Area Network) which is defined for optimizing
+   the efficient routing of IPv6 packets for resource constrained
+   machine- type communication applications.
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 6]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+   [RFC8995] on 'Bootstrapping Remote Secure Key Infrastructure' (BRSKI)
+   deals with authentication of devices, including sending
+   authorizations to the device as to what network they should join, and
+   how to authenticate that network by specifying automated
+   bootstrapping of an Autonomic Control Plane (ACP) [RFC8994].  Secure
+   Key Infrastructure (SKI) bootstrapping using manufacturer- installed
+   X.509 certificates combined with a manufacturer's authorizing
+   service, both online and offline, is called the Bootstrapping Remote
+   Secure Key Infrastructure (BRSKI) protocol.  Bootstrapping a new
+   device can occur when using a routable address and a cloud service,
+   only link- local connectivity, or limited/disconnected networks and
+   includes support for deployment models with less stringent security
+   requirements.  When the cryptographic identity of the new SKI is
+   successfully deployed to the device, completion of bootstrapping is
+   achieved.  A locally issued certificate can be deployed to the device
+   via the established secure connection as well.
+
+   DPP is based on the usage of out-of band channel usage.  LED light so
+   far appeared to be the most commonly used out-of band channel.  Here
+   we describe two projects, the lighthouse and EAP-NOOB.
+
+   LED light based authentication attempts to authenticate hard to reach
+   IoT devices using LED light indicator available on the device.  Here
+   LED light is used as an out-of-band channel in addition to a wireless
+   LAN peer-to-peer connection to the device using a smartphone over TLS
+   connection which is not secured.  Smartphone initially obtains
+   device's public key certificate.  Smartphone as the client requests
+   certificate fingerprint over visible LED light channel.  Device
+   transmits fingerprint by modulating LED.  Client receives data with
+   camera and decodes.  Client compares TLS certificate fingerprint with
+   received fingerprint to complete authentication.  LED light based
+   authentication does not support multiple ways of getting the hash
+   value from the device.  Although most devices have LED type of output
+   leading to visible light communication, some devices have speaker
+   type of output and not readily visible [Lins18], [Oden18].
+
+   LED light based authentication is similar to EAP-NOOB, Nimble out-of-
+   band authentication for EAP [RFC9140] where Zigbee or 802.15.4
+   channel is the main channel and blinking LED light is used as out-of-
+   band channel.  In the main channel, the device is connected to the
+   Internet over 802.15.4 channel to a controller (a laptop, acting as a
+   Wi-Fi access point) which connects over the Internet to AAA server as
+   EAP server where the user has an account.  In the OOB channel, the
+   device is connected to a smartphone using blinking LED light and the
+   smartphone is connected to AAA server using its 4G/5G air interface.
+   OOB channel enables the device to send critical data needed i.e.  a
+   secret nonce to EAP server.  EAP-NOOB protocol architecture includes
+   RADIUS which is used to encode EAP messages and constrained
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 7]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+   Application Protocol, CoAP which is a simplified HTTP.  CoAP is used
+   in transporting the nonce.  EAP-NOOB requires AAA server and user
+   account on the server, i.e. human interaction.
+
+   When compared to the above out-of band channel use in IoT
+   authentication a mechanism relying on Wi-Fi sensing gesture detection
+   does not require the user to know any key, identifier, or password
+   for the device to be authenticated.  A pre-defined type of access to
+   the device (e.g., physical, photographic or video representation,
+   unique description in terms of parameters, etc.) shall be a
+   prerequisite for authentication.  In addition, no second interface at
+   the IoT device would be required beyond the radio signal which can be
+   used for both, communication and the OOB transmission of the secret.
+
+5.  The Need for New Authentication Models
+
+   LED light is one-directional initiated by the sensor.  The advantages
+   of LED light as out-of band channel is that LED light is readily
+   available in every smartphone and LED light has some good security
+   properties, because of visibility, man-in-the middle attacks can be
+   easily mitigated.
+
+   While OOB channel is universal, i.e. it can apply to any type of IoT
+   device not all devices have a light or are visible.  For for future
+   work, we need to think of multiple ways to do authentication, not
+   just one, even for the same device.  Some devices will have speakers,
+   for example, or may not be readily visible.
+
+5.1.  IoT Applications Commonly Used
+
+   There are many IoT applications for home usage that enable
+   authentication as well as configuration of the devices such as
+   Homekit.  Device vendor like Feit Electric also make similar
+   applications.  These apps have a common problem: when a device, like
+   a light bulb goes bad, there is no easy way to remove it from all the
+   features like groups, scenes, automations that the bulb was part of.
+   The main issue is the lack of search/replace one device with another.
+   This brings the need for naming IoT devices.  A standard geospatial
+   naming needs to be developed so that the developers can use it in
+   developing their IoT applications.
+
+6.  IANA Considerations
+
+   TBD.
+
+
+
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 8]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+7.  Security Considerations
+
+   This document raises no new security concerns but tries to identify
+   how to increase security in future IoT by discussing the issues of
+   robust but easy to apply authentication mechanisms.
+
+8.  Acknowledgements
+
+   Discussions with Jan Janak, Henning Schulzrinne, and Michael
+   Richardson helped us improve the draft.
+
+9.  References
+
+9.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+9.2.  Informative References
+
+   [BFSFD]    IEEE, "Institute of Electrical and Electronics Engineers,
+              IEEE P802.11 - TASK GROUP BF (WLAN SENSING) 11-21/0504r2
+              "Specification Framework for TGbf"", July 2021.
+
+   [BFUseCases]
+              IEEE, "Institute of Electrical and Electronics Engineers,
+              IEEE P802.11 - TASK GROUP BF (WLAN SENSING) 11-20/1712r2
+              "WiFi Sensing Use Cases"", January 2021.
+
+   [dpp]      Wi-Fi Alliance, "Wi-Fi Device Provisioning Protocol
+              (DPP)", Wi-Fi Alliance Specification version 1.1, 2018,
+              <https://www.wi-
+              fi.org/download.php?file=/sites/default/files/private/
+              Device_Provisioning_Protocol_Specification_v1.1_1.pdf>.
+
+   [Henning]  Schulzrinne, H., "Do We Still Need Wi-Fi in the Era of 5G
+              (and 6G)?", February 2021.
+
+   [Henning2] Jan Janak, Luoyao Hao and Henning Schulzrinne, "How do we
+              program the Internet of Things at scale?", September 2021.
+
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023                [Page 9]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+   [I-D.irtf-t2trg-secure-bootstrapping-02]
+              Sethi, M., Sarikaya, B., and D. Garcia-Carrillo,
+              "Terminology and processes for initial security setup of
+              IoT devices", Work in Progress, Internet-Draft, draft-
+              irtf-t2trg-secure-bootstrapping-02, 25 April 2022,
+              <https://www.ietf.org/archive/id/draft-irtf-t2trg-secure-
+              bootstrapping-02.txt>.
+
+   [IEEE802.11]
+              IEEE, "IEEE Std. 802.11-2016", December 2016,
+              <https://standards.ieee.org/findstds/
+              standard/802.11-2016.html>.
+
+   [IEEE802.1X]
+              IEEE, "Institute of Electrical and Electronics Engineers,
+              "802.1X - Port Based Network Access Control"", January
+              2020.
+
+   [Lins18]   Linssen, A., "Secure Authentication of Remote IoT Devices
+              Using Visible Light Communication: Transmitter Design and
+              Implementation", Columbia University , 2018,
+              <https://www.cs.columbia.edu/~hgs/papers/
+              Lins18_Secure.pdf>.
+
+   [Oden18]   Odental, H., "Secure Authentication of Remote IoT Devices
+              Using Visible Light Communication: Receiver Design and
+              Implementation", Columbia University , 2018,
+              <https://www.cs.columbia.edu/~hgs/papers/
+              Oden18_Secure.pdf>.
+
+   [P1918]    IEEE Standards Working Group 1918.1, "Tactile Internet",
+              July 2016.
+
+   [Rest21]   Restuccia, F., "IEEE 802.11bf: Toward Ubiquitous Wi-Fi
+              Sensing", arXiv preprint arXiv:2103.14918 7 pages, March
+              2021.
+
+   [RFC6749]  Hardt, D., Ed., "The OAuth 2.0 Authorization Framework",
+              RFC 6749, DOI 10.17487/RFC6749, October 2012,
+              <https://www.rfc-editor.org/info/rfc6749>.
+
+   [RFC8576]  Garcia-Morchon, O., Kumar, S., and M. Sethi, "Internet of
+              Things (IoT) Security: State of the Art and Challenges",
+              RFC 8576, DOI 10.17487/RFC8576, April 2019,
+              <https://www.rfc-editor.org/info/rfc8576>.
+
+
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023               [Page 10]
+
+Internet-Draft       The Need for IoT Authentication           July 2022
+
+
+   [RFC8994]  Eckert, T., Ed., Behringer, M., Ed., and S. Bjarnason, "An
+              Autonomic Control Plane (ACP)", RFC 8994,
+              DOI 10.17487/RFC8994, May 2021,
+              <https://www.rfc-editor.org/info/rfc8994>.
+
+   [RFC8995]  Pritikin, M., Richardson, M., Eckert, T., Behringer, M.,
+              and K. Watsen, "Bootstrapping Remote Secure Key
+              Infrastructure (BRSKI)", RFC 8995, DOI 10.17487/RFC8995,
+              May 2021, <https://www.rfc-editor.org/info/rfc8995>.
+
+   [RFC9140]  Aura, T., Sethi, M., and A. Peltonen, "Nimble Out-of-Band
+              Authentication for EAP (EAP-NOOB)", RFC 9140,
+              DOI 10.17487/RFC9140, December 2021,
+              <https://www.rfc-editor.org/info/rfc9140>.
+
+   [Wang3]    Wang, H., Lymberopoulos, D., and J. Liu, "Sensor-Based
+              User Authentication", EWSN 2015, LNCS 8965, 168 , 2015.
+
+Acknowledgements
+
+Authors' Addresses
+
+   Dirk von Hugo
+   Deutsche Telekom
+   Deutsche-Telekom-Allee 9
+   64295 Darmstadt
+   Germany
+
+   Email: Dirk.von-Hugo@telekom.de
+
+
+   Behcet Sarikaya
+
+   Email: sarikaya@ieee.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+von Hugo & Sarikaya      Expires 12 January 2023               [Page 11]
